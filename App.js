@@ -4,7 +4,9 @@ import { Text, View } from 'react-native';
 import * as ScreenOrienatation from 'expo-screen-orientation';
 import MissionTopBar from './components/MissionTopBar';
 import MissionDetails from './components/MissionDetails';
+import SetUp from './components/Setup';
 const styles = require('./components/StyleSheet');
+const gameObject = require('./components/GameLogic')
 
 
 export default function App() {
@@ -24,14 +26,21 @@ export default function App() {
     setOrientation(o);
   }
 
-  //style={[styles.container, {flexDirection: "column"}]}>
+  const renderTopBarAndDetails = () => {
+    return (
+      <>
+        <View style={[styles.topBarContainer]}>
+          <MissionTopBar/>
+        </View>
+        <MissionDetails/>
+      </>
+
+    )
+  }
 
   return (
     <View style={[styles.container, {flexDirection: "column"}]}>
-      <View style={[styles.topBarContainer]}>
-        <MissionTopBar/>
-      </View>
-      <MissionDetails/>
+      {gameObject.getSetUpStatus() ? renderTopBarAndDetails() : <SetUp />}
       <StatusBar style="auto" />
     </View>
   );

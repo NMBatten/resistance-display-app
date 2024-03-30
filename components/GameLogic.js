@@ -94,13 +94,21 @@ const gameObject = {
             const { thisNumTeam, thisNumFails, status } = this.missionProfiles[key]
             missionsArray.push([thisNumTeam, thisNumFails, status]);
         }
-        console.log("missionsArray in GameLogic.js", missionsArray)
+        console.log("missionsArray in GameLogic.js", missionsArray);
         return missionsArray;
     },
 
     missionSucceeded (mission_id, value) {
         value ? this.missionProfiles[mission_id]["status"] = "Pass" : this.missionProfiles[mission_id]["status"] = "Fail";
-    }
+    },
+
+    setSetUpComplete () {
+        this.setUpComplete = true;
+    },
+
+    getSetUpStatus () {
+        return this.setUpComplete;
+    },
 }
 
 module.exports = gameObject;

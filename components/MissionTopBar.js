@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+const styles = require('./StyleSheet');
 
 const MissionTopBar = () => {
 

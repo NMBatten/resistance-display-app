@@ -112,3 +112,7 @@ const gameObject = {
 }
 
 module.exports = gameObject;
+
+
+// Logic for votes still needs to be implemented. Also need to add in an automatic
+// game end checker.

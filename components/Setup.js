@@ -47,7 +47,7 @@ const SetUp = () => {
 
 
     return (
-        <View style={[styles.setUpContainer]}>
+        <View style={[styles.setUpContainer, {backgroundColor: "#30314050", borderRadius: 10}]}>
 
                 <Text style={[styles.titleText]}>WELCOME TO THE RESISTANCE</Text>
                 <View style={[styles.playerInputBox]}>
@@ -56,9 +56,9 @@ const SetUp = () => {
                         title="     -     "
                         disable={numPlayers === 5}
                         color={styles.colors.RED}
-                        style={{}}
+                        style={[styles.failedMissionButton]}
                     />
-                    <View>
+                    <View style={{backgroundColor: "#30314090", borderRadius: 10}}>
                         <Text style={[styles.smallTitleText]}>{numPlayers}</Text>
                     </View>
                     <Button

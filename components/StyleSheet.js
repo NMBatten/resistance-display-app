@@ -1,9 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 const colors = {
-    BLUE: "blue",
-    RED: "red",
-    YELLOW: "gold",
+    BLUE: "#0505cc",
+    RED: "#800000",
     BURGUNDY: "#800000",
 }
 
@@ -16,7 +15,7 @@ const styles = StyleSheet.create({
         borderColor: colors.RED,
     },
     failedMissionButton: {
-        color: colors.RED,
+        shadowColor: colors.RED,
     },
     successMissionButton: {
         backgroundColor: colors.BLUE,
@@ -31,10 +30,11 @@ const styles = StyleSheet.create({
     titleText: {
         color: colors.BLUE,
         fontWeight: "bold",
-        fontSize: 30,
-        textShadowColor: "#558ABB",
+        fontSize: 35,
+        textShadowColor: "#558ACC80",
         textAlign: "center",
-
+        textShadowOffset: {width: 2, height: 3},
+        textShadowRadius: 4,
     },
     setUpContainer: {
         flex: 1,
@@ -54,7 +54,11 @@ const styles = StyleSheet.create({
     smallTitleText: {
         color: colors.BLUE,
         fontWeight: "bold",
-        fontSize: 20,
+        fontSize: 25,
+        textShadowColor: "#558ABB80",
+        textAlign: "center",
+        textShadowOffset: {width: 1, height: 1},
+        textShadowRadius: 4,
     },
     startGameContainer: {
         padding: 10,
@@ -63,6 +67,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     backgroundImage: {
+        flex: 1,
         width: "100%",
         height: "100%",
     }

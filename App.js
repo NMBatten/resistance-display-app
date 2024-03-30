@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { Text, View, ImageBackground } from 'react-native';
 import * as ScreenOrienatation from 'expo-screen-orientation';
 import MissionTopBar from './components/MissionTopBar';
 import MissionDetails from './components/MissionDetails';
@@ -40,8 +40,10 @@ export default function App() {
 
   return (
     <View style={[styles.container, {flexDirection: "column"}]}>
-      {gameObject.getSetUpStatus() ? renderTopBarAndDetails() : <SetUp />}
-      <StatusBar style="auto" />
+      <ImageBackground source={require('./components/resources/pictures/FutureCity.jpg')} resizeMode='stretch' style={[styles.backgroundImage]}>
+        {gameObject.getSetUpStatus() ? renderTopBarAndDetails() : <SetUp />}
+        <StatusBar style="auto" />
+      </ImageBackground>
     </View>
   );
 }

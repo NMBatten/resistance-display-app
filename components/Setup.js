@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Button, ImageBackground } from 'react-native';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic');
 
@@ -15,7 +15,7 @@ const SetUp = () => {
     const [dispFinishButton, setDispFinishButton] = useState(false);
 
     const handleUpPress = () => {
-        if (numPlayers + 1 <= 11) {
+        if (numPlayers + 1 <= 10) {
             setNumPlayers(numPlayers + 1);
             submitButtonActive ? null : setSubmitButtonActive(true);
         } else {
@@ -47,8 +47,34 @@ const SetUp = () => {
 
 
     return (
-        <View>
-            <Text style={{}}>WELCOME TO THE RESISTANCE</Text>
+        <View style={[styles.setUpContainer]}>
+
+                <Text style={[styles.titleText]}>WELCOME TO THE RESISTANCE</Text>
+                <View style={[styles.playerInputBox]}>
+                    <Button
+                        onPress={handleDownPress}
+                        title="     -     "
+                        disable={numPlayers === 5}
+                        color={styles.colors.RED}
+                        style={{}}
+                    />
+                    <View>
+                        <Text style={[styles.smallTitleText]}>{numPlayers}</Text>
+                    </View>
+                    <Button
+                        onPress={handleUpPress}
+                        title="     +     "
+                        disable={numPlayers === 10}
+                        color={styles.colors.BLUE}
+                    />
+                </View>
+                <View style={[styles.startGameContainer]}>
+                    <Button
+                        onPress={handleSubmitButtonPress}
+                        title="   Start Game   "
+                        color={styles.colors.BURGUNDY}
+                    />
+                </View>
         </View>
     )
 

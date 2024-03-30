@@ -89,12 +89,18 @@ const gameObject = {
     },
 
     getMissions () {
-        return this.missionProfiles;
+        const missionsArray = [];
+        for (const key in this.missionProfiles) {
+            const { thisNumTeam, thisNumFails, status } = this.missionProfiles[key]
+            missionsArray.push([thisNumTeam, thisNumFails, status]);
+        }
+        console.log("missionsArray in GameLogic.js", missionsArray)
+        return missionsArray;
     },
 
     missionSucceeded (mission_id, value) {
         value ? this.missionProfiles[mission_id]["status"] = "Pass" : this.missionProfiles[mission_id]["status"] = "Fail";
     }
-
-
 }
+
+module.exports = gameObject;

@@ -24,10 +24,13 @@ export default function App() {
     setOrientation(o);
   }
 
+  //style={[styles.container, {flexDirection: "column"}]}>
 
   return (
     <View style={[styles.container, {flexDirection: "column"}]}>
-      <MissionTopBar/>
+      <View style={[styles.topBarContainer]}>
+        <MissionTopBar/>
+      </View>
       <MissionDetails/>
       <StatusBar style="auto" />
     </View>

@@ -1,31 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 const styles = require('./StyleSheet');
+const gameObject = require('./GameLogic')
 
 const MissionTopBar = () => {
+    const [missions, setMissions] = useState([]);
 
-    const [ dispMessage, setDispMessage ] = useState(false);
-
-    const message = () => {
-        return (
-            <View style={{backgroundColor: "orange"}}>
-                <Text>You pressed the number button!</Text>
-            </View>
-        )
+    const fetchMissions = () => {
+        setMissions(gameObject.getMissions());
     }
+
+    useEffect(() => {
+        fetchMissions();
+    }, [])
 
     const handlePress = () => {
-        dispMessage ? setDispMessage(false) : setDispMessage(true);
+
     }
 
+    console.log(missions)
+
     return (
-        <View>
-            <Button
-                onPress={handlePress}
-                title="This is a button"
-                color="blue"
-            />
-            {dispMessage ? message() : null}
+        <View style={[styles.topBarContainer]}>
+            {missions.map((element) => {
+                return (
+                    <Text key={element}>{element}</Text>
+                )
+            })}
         </View>
     )
 }

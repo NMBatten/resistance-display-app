@@ -7,6 +7,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    failedMissionButton: {
+        backgroundColor: "red",
+    },
+    successMissionButton: {
+        backgroundColor: "blue",
+    },
+    topBarContainer: {
+        flex: 1,
+        paddingTop: 10,
+        justifyContent: "space-around",
+        alignItems: "flex-start",
+        flexDirection: "row",
+    }
 });
 
 module.exports = styles;

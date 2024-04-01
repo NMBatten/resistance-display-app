@@ -84,26 +84,29 @@ const gameObject = {
         return this.missionProfiles.numSpies;
     },
 
-    getMissionDetails(mission_id) {
-        return this.missionProfiles[mission_id];
+    getMissionDetails(missionID) {
+        return this.missionProfiles[missionID];
     },
 
-    // setCurrentMission (mission_id) {
-    //     this.currentMission = mission_id;
+    // setCurrentMission (missionID) {
+    //     this.currentMission = missionID;
     // },
 
     getMissions () {
         const missionsArray = [];
         for (const key in this.missionProfiles) {
-            const { thisNumTeam, thisNumFails, status } = this.missionProfiles[key]
-            missionsArray.push([thisNumTeam, thisNumFails, status]);
+            const { numTeam, numFails, status } = this.missionProfiles[key]
+            console.log("mission profiles by key", this.missionProfiles[key]);
+            if (key !== "numSpies") {
+                missionsArray.push([key, numTeam, numFails, status]);
+            }
         }
         console.log("missionsArray in GameLogic.js", missionsArray);
         return missionsArray;
     },
 
-    missionSucceeded (mission_id, value) {
-        value ? this.missionProfiles[mission_id]["status"] = "Pass" : this.missionProfiles[mission_id]["status"] = "Fail";
+    missionSucceeded (missionID, value) {
+        value ? this.missionProfiles[missionID]["status"] = "Pass" : this.missionProfiles[missionID]["status"] = "Fail";
     },
 
     setSetUpComplete () {

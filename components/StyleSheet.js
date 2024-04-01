@@ -4,6 +4,7 @@ const colors = {
     BLUE: "#0505cc",
     RED: "#800000",
     BURGUNDY: "#800000",
+    YELLOW: "#ffd11aaa",
 }
 
 const styles = StyleSheet.create({
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     },
     topBarContainer: {
         flex: 1,
-        paddingTop: 10,
+        padding: 10,
         justifyContent: "space-around",
         alignItems: "flex-start",
         flexDirection: "row",
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
     },
     messageContainer: {
         backgroundColor: "#30314090",
-        borderRadius: 20,
+        borderRadius: 10,
         overflow: "hidden",
     }
 });

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { Text, View, Button } from 'react-native';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')
 
-const MissionTopBar = () => {
+const MissionTopBar = ({ setCurrentMission }) => {
     const [missions, setMissions] = useState([]);
 
     const fetchMissions = () => {
@@ -14,20 +14,23 @@ const MissionTopBar = () => {
         fetchMissions();
     }, [])
 
-    const handlePress = () => {
-
+    const handlePress = (missionID) => {
+        setCurrentMission(missionID);
     }
 
-    console.log(missions)
-
     return (
-        <View style={[styles.topBarContainer]}>
+        <View style={[styles.topBarContainer, styles.messageContainer]}>
+            {console.log(missions)}
             {missions.map((element) => {
                 return (
-                    <Text key={element}>{element}</Text>
+                    <Button
+                        title={`M${element[0]} P${element[1]} S${element[2]}`}
+                        color={element.status === "Pass" ? styles.colors.BLUE : element.status === "Fail" ? styles.colors.RED : styles.colors.YELLOW}
+                        onPress={() => handlePress(element[0])}
+                        key={element[0]}
+                    />
                 )
             })}
-            <Text>This is the mission top bar</Text>
         </View>
     )
 }

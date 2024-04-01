@@ -13,6 +13,8 @@ export default function App() {
   // Locking the app in landscape orientation, should only be needed in dev testing as once it is compiled to an APK the same
   // can be achieved by modifying the AndroidManifest.xml file
   const [orientation, setOrientation] = useState(3);
+  const [currentMission, setCurrentMission ] = useState(0);
+  const [setUpComplete, setSetUpComplete] = useState(false);
 
   useEffect(() => {
     lockOrientation();
@@ -32,16 +34,24 @@ export default function App() {
         <View style={[styles.topBarContainer]}>
           <MissionTopBar/>
         </View>
-        <MissionDetails/>
+        <View>
+          <MissionDetails/>
+        </View>
       </>
 
     )
-  }
+  };
+
+  const renderSetUp = () => {
+    return (
+      <SetUp dispSelf={true} setDisp={() => setSetUpComplete(true)} />
+    )
+  };
 
   return (
     <View style={[styles.container, {flexDirection: "column"}]}>
       <ImageBackground source={require('./components/resources/pictures/FutureCity.jpg')} resizeMode='stretch' style={[styles.backgroundImage]}>
-        {gameObject.getSetUpStatus() ? renderTopBarAndDetails() : <SetUp />}
+        {gameObject.getSetUpStatus() ? renderTopBarAndDetails() : renderSetUp()}
         <StatusBar style="auto" />
       </ImageBackground>
     </View>

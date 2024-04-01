@@ -27,6 +27,7 @@ const MissionTopBar = () => {
                     <Text key={element}>{element}</Text>
                 )
             })}
+            <Text>This is the mission top bar</Text>
         </View>
     )
 }

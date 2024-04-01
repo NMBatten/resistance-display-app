@@ -7,7 +7,7 @@ const gameObject = require('./GameLogic');
 // Once the number of players is confirmed it will display
 // how many players should be resistance and how many will be spies
 
-const SetUp = () => {
+const SetUp = ({dispSelf, setDisp}) => {
     const [numPlayers, setNumPlayers] = useState(5);
     const [dispMessage, setDispMessage] = useState(false);
     const [messageText, setMessageText] = useState('');
@@ -16,7 +16,7 @@ const SetUp = () => {
 
     const handleUpPress = () => {
         if (numPlayers + 1 <= 10) {
-            setDispMessage(false)
+            setDispMessage(false);
             setNumPlayers(numPlayers + 1);
             submitButtonActive ? null : setSubmitButtonActive(true);
         } else {
@@ -46,43 +46,49 @@ const SetUp = () => {
     const handleFinishButtonPress = () => {
         gameObject.setSetUpComplete();
         console.log("Setup Complete")
+        setDisp();
     };
 
-
-    return (
-        <View style={[styles.setUpContainer, {backgroundColor: "#30314050", borderRadius: 10}]}>
-
-                <Text style={[styles.titleText]}>WELCOME TO THE RESISTANCE</Text>
-                <View style={[styles.playerInputBox]}>
-                    <Button
-                        onPress={handleDownPress}
-                        title="     -     "
-                        disable={numPlayers === 5}
-                        color={styles.colors.RED}
-                        style={[styles.failedMissionButton]}
-                    />
-                    <View style={{backgroundColor: "#30314090", borderRadius: 10}}>
-                        <Text style={[styles.smallTitleText]}>{numPlayers}</Text>
+    if (dispSelf) {
+        return (
+            <>
+                <View style={[styles.setUpContainer, {backgroundColor: "#30314050", borderRadius: 10}]}>
+                    <View style={[styles.messageContainer, styles.startGameContainer]}>
+                        <Text style={[styles.titleText]}>WELCOME TO THE RESISTANCE</Text>
                     </View>
-                    <Button
-                        onPress={handleUpPress}
-                        title="     +     "
-                        disable={numPlayers === 10}
-                        color={styles.colors.BLUE}
-                    />
+                    <View style={[styles.playerInputBox]}>
+                        <Button
+                            onPress={handleDownPress}
+                            title="     -     "
+                            disable={numPlayers === 5}
+                            color={styles.colors.RED}
+                            style={[styles.failedMissionButton]}
+                        />
+                        <View style={{backgroundColor: "#30314090", borderRadius: 10}}>
+                            <Text style={[styles.smallTitleText]}>{numPlayers}</Text>
+                        </View>
+                        <Button
+                            onPress={handleUpPress}
+                            title="     +     "
+                            disable={numPlayers === 10}
+                            color={styles.colors.BLUE}
+                        />
+                    </View>
+                    <View style={[styles.startGameContainer, styles.messageContainer]}>
+                        { dispMessage ? <Text style={[styles.smallTitleText, {color:"black"}]}>{messageText}</Text> : null }
+                    </View>
+                    <View style={[styles.startGameContainer]}>
+                        <Button
+                            onPress={ dispMessage && submitted ? handleFinishButtonPress : handleSubmitButtonPress }
+                            title= { dispMessage && submitted ? "   Start Game   " : "      Submit      " }
+                            color={styles.colors.BURGUNDY}
+                        />
+                    </View>
                 </View>
-                <View style={[styles.startGameContainer]}>
-                    { dispMessage ? <Text style={[styles.smallTitleText, {color:"black"}]}>{messageText}</Text> : null }
-                </View>
-                <View style={[styles.startGameContainer]}>
-                    <Button
-                        onPress={ dispMessage && submitted ? handleFinishButtonPress : handleSubmitButtonPress }
-                        title= { dispMessage && submitted ? "   Start Game   " : "      Submit      " }
-                        color={styles.colors.BURGUNDY}
-                    />
-                </View>
-        </View>
-    )
+            </>
+        )
+    };
+
 
 
 }

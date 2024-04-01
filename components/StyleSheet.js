@@ -70,6 +70,11 @@ const styles = StyleSheet.create({
         flex: 1,
         width: "100%",
         height: "100%",
+    },
+    messageContainer: {
+        backgroundColor: "#30314090",
+        borderRadius: 20,
+        overflow: "hidden",
     }
 });
 

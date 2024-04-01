@@ -3,9 +3,13 @@
 // Each of the objects inside possibleMissions contains the details
 // of each mission profile
 
+const { useState } = require("react");
+
 const possibleMissions = [
     // eg. this represents the missions if 5 people are playing, the
     // first entry will be the number of spies
+    // Need to add in an array inside of each object representing
+    // votes and their statuses
     {
         numSpies: 2,
         1:{numTeam: 2, numFails: 1},
@@ -64,7 +68,7 @@ const possibleMissions = [
 const gameObject = {
     numPlayers: null,
     missionProfiles: undefined,
-    currentMission: 1,
+    // currentMission: 1,
     setUpComplete: false,
 
     setNumPlayers (num) {
@@ -84,9 +88,9 @@ const gameObject = {
         return this.missionProfiles[mission_id];
     },
 
-    setCurrentMission (mission_id) {
-        this.currentMission = mission_id;
-    },
+    // setCurrentMission (mission_id) {
+    //     this.currentMission = mission_id;
+    // },
 
     getMissions () {
         const missionsArray = [];

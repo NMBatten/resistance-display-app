@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, View, Button, ImageBackground } from 'react-native';
+import { Text, View, Button } from 'react-native';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic');
 
@@ -12,10 +12,11 @@ const SetUp = () => {
     const [dispMessage, setDispMessage] = useState(false);
     const [messageText, setMessageText] = useState('');
     const [submitButtonActive, setSubmitButtonActive] = useState(true);
-    const [dispFinishButton, setDispFinishButton] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
     const handleUpPress = () => {
         if (numPlayers + 1 <= 10) {
+            setDispMessage(false)
             setNumPlayers(numPlayers + 1);
             submitButtonActive ? null : setSubmitButtonActive(true);
         } else {
@@ -26,6 +27,7 @@ const SetUp = () => {
 
     const handleDownPress = () => {
         if (numPlayers - 1 >= 5) {
+            setDispMessage(false);
             setNumPlayers(numPlayers - 1);
             submitButtonActive ? null : setSubmitButtonActive(true);
         } else {
@@ -36,13 +38,14 @@ const SetUp = () => {
 
     const handleSubmitButtonPress = () => {
         const numSpies = gameObject.setUp(numPlayers);
-        setSubmitButtonActive(false)
+        setSubmitted(true);
         setMessageText(`There will be ${numSpies} Spies`);
-        setDispFinishButton(true);
+        setDispMessage(true);
     };
 
     const handleFinishButtonPress = () => {
         gameObject.setSetUpComplete();
+        console.log("Setup Complete")
     };
 
 
@@ -69,9 +72,12 @@ const SetUp = () => {
                     />
                 </View>
                 <View style={[styles.startGameContainer]}>
+                    { dispMessage ? <Text style={[styles.smallTitleText, {color:"black"}]}>{messageText}</Text> : null }
+                </View>
+                <View style={[styles.startGameContainer]}>
                     <Button
-                        onPress={handleSubmitButtonPress}
-                        title="   Start Game   "
+                        onPress={ dispMessage && submitted ? handleFinishButtonPress : handleSubmitButtonPress }
+                        title= { dispMessage && submitted ? "   Start Game   " : "      Submit      " }
                         color={styles.colors.BURGUNDY}
                     />
                 </View>

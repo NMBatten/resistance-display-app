@@ -76,7 +76,20 @@ const styles = StyleSheet.create({
         backgroundColor: "#30314090",
         borderRadius: 10,
         overflow: "hidden",
-    }
+    },
+    detailsContainer: {
+        flexDirection: "row",
+        flex: 1,
+    },
+    innerDetailContainer: {
+        flexDirection: "column",
+        flexGrow: 2,
+        alignItems: "stretch",
+    },
+    missionDisplayContainer: {
+        flexDirection: "column",
+        justifyContent: "space-around",
+    },
 });
 
 styles.colors = colors

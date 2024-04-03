@@ -74,7 +74,7 @@ const SetUp = ({dispSelf, setDisp}) => {
                             color={styles.colors.BLUE}
                         />
                     </View>
-                    <View style={[styles.startGameContainer, styles.messageContainer]}>
+                    <View style={[styles.startGameContainer, styles.messageContainer, { opacity: dispMessage ? 1 : 0}]}>
                         { dispMessage ? <Text style={[styles.smallTitleText, {color:"black"}]}>{messageText}</Text> : null }
                     </View>
                     <View style={[styles.startGameContainer]}>

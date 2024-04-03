@@ -63,12 +63,10 @@ const possibleMissions = [
     },
 ];
 
-
-
 const gameObject = {
     numPlayers: null,
     missionProfiles: undefined,
-    // currentMission: 1,
+    activeMission: 1,
     setUpComplete: false,
 
     setNumPlayers (num) {
@@ -88,20 +86,18 @@ const gameObject = {
         return this.missionProfiles[missionID];
     },
 
-    // setCurrentMission (missionID) {
-    //     this.currentMission = missionID;
-    // },
+    setActiveMission (missionID) {
+        this.activeMission = missionID;
+    },
 
     getMissions () {
         const missionsArray = [];
         for (const key in this.missionProfiles) {
             const { numTeam, numFails, status } = this.missionProfiles[key]
-            console.log("mission profiles by key", this.missionProfiles[key]);
             if (key !== "numSpies") {
                 missionsArray.push([key, numTeam, numFails, status]);
             }
         }
-        console.log("missionsArray in GameLogic.js", missionsArray);
         return missionsArray;
     },
 
@@ -116,7 +112,7 @@ const gameObject = {
     getSetUpStatus () {
         return this.setUpComplete;
     },
-}
+};
 
 module.exports = gameObject;
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, ImageBackground } from 'react-native';
+import { View, ImageBackground } from 'react-native';
 import * as ScreenOrienatation from 'expo-screen-orientation';
 import MissionTopBar from './components/MissionTopBar';
 import MissionDetails from './components/MissionDetails';

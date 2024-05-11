@@ -88,9 +88,6 @@ const SetUp = ({dispSelf, setDisp}) => {
             </>
         )
     };
-
-
-
 }
 
 export default SetUp;

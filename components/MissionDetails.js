@@ -16,12 +16,13 @@ const MissionDetails = ({ currentMission }) => {
         getMission(currentMission);
     }, []);
 
+    console.log("Details: ", details);
 
     return (
         <View>
             <View style={[styles.detailsContainer, styles.messageContainer]}>
                 <View style={[styles.innerDetailContainer]}>
-                    <Text>These are the details: {details}</Text>
+                    <Text>These are the details:</Text>
                 </View>
             </View>
             <Text>This is the Mission Details Page</Text>

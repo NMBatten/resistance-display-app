@@ -82,7 +82,10 @@ const gameObject = {
         return this.missionProfiles.numSpies;
     },
 
-    getMissionDetails(missionID) {
+    // currently not working, causing the bug
+    getMissionDetails (missionID) {
+        const missionsArray = [];
+        console.log("Mission Details: ", this.missionProfiles[missionID]);
         return this.missionProfiles[missionID];
     },
 

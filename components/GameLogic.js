@@ -93,6 +93,10 @@ const gameObject = {
         this.activeMission = missionID;
     },
 
+    getActiveMission () {
+        return this.activeMission
+    },
+
     getMissions () {
         const missionsArray = [];
         for (const key in this.missionProfiles) {

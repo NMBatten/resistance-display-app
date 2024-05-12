@@ -14,6 +14,12 @@ const MissionDetails = ({ currentMission }) => {
 
     useEffect(() => {
         getMission(currentMission);
+        // Once we set up 
+        // if (currentMission === gameObject.getActiveMission) {
+        //     setIsActive(true)
+        // } else {
+        //     setIsActive(false)
+        // }
     }, [currentMission]);
 
     console.log("Details: ", details);

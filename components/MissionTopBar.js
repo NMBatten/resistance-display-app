@@ -3,7 +3,7 @@ import { Text, View, Button } from 'react-native';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')
 
-const MissionTopBar = ({ setCurrentMission }) => {
+const MissionTopBar = ({ setCurrentMission, currentMission }) => {
     const [missions, setMissions] = useState([]);
 
     const fetchMissions = () => {
@@ -15,7 +15,9 @@ const MissionTopBar = ({ setCurrentMission }) => {
     }, [])
 
     const handlePress = (missionID) => {
-        setCurrentMission(missionID);
+        if (currentMission != missionID) {
+            setCurrentMission(missionID);
+        }
     }
 
     return (

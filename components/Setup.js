@@ -59,7 +59,7 @@ const SetUp = ({dispSelf, setDisp}) => {
                     <View style={[styles.playerInputBox]}>
                         <Button
                             onPress={handleDownPress}
-                            title="     -     "
+                            title="       -       "
                             disable={numPlayers === 5}
                             color={styles.colors.RED}
                             style={[styles.failedMissionButton]}
@@ -69,7 +69,7 @@ const SetUp = ({dispSelf, setDisp}) => {
                         </View>
                         <Button
                             onPress={handleUpPress}
-                            title="     +     "
+                            title="       +       "
                             disable={numPlayers === 10}
                             color={styles.colors.BLUE}
                         />

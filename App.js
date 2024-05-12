@@ -13,7 +13,7 @@ export default function App() {
   // Locking the app in landscape orientation, should only be needed in dev testing as once it is compiled to an APK the same
   // can be achieved by modifying the AndroidManifest.xml file
   const [orientation, setOrientation] = useState(3);
-  const [currentMission, setCurrentMission ] = useState(0);
+  const [currentMission, setCurrentMission ] = useState(1);
   const [setUpComplete, setSetUpComplete] = useState(false);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function App() {
     return (
       <>
         <View style={[styles.topBarContainer]}>
-          <MissionTopBar setCurrentMission={setCurrentMission}/>
+          <MissionTopBar setCurrentMission={setCurrentMission} currentMission={currentMission}/>
         </View>
         <View>
           <MissionDetails currentMission={currentMission}/>

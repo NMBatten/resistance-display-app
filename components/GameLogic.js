@@ -84,8 +84,8 @@ const gameObject = {
 
     // currently not working, causing the bug
     getMissionDetails (missionID) {
-        const missionsArray = [];
-        console.log("Mission Details: ", this.missionProfiles[missionID]);
+        console.log("MissionProfileKey: ", String(missionID))
+        console.log("Mission Details: ", this.missionProfiles[String(missionID)]);
         return this.missionProfiles[missionID];
     },
 

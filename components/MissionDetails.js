@@ -14,15 +14,15 @@ const MissionDetails = ({ currentMission }) => {
 
     useEffect(() => {
         getMission(currentMission);
-    }, []);
+    }, [currentMission]);
 
     console.log("Details: ", details);
 
     return (
         <View>
-            <View style={[styles.detailsContainer, styles.messageContainer]}>
-                <View style={[styles.innerDetailContainer]}>
-                    <Text>These are the details:</Text>
+            <View>
+                <View>
+                    <Text>These are the details: {details.numTeam} {details.numFails}</Text>
                 </View>
             </View>
             <Text>This is the Mission Details Page</Text>

@@ -3,7 +3,7 @@ import { Text, View, Button } from 'react-native';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')
 
-const MissionTopBar = ({ setCurrentMission }) => {
+const MissionTopBar = ({ setCurrentMission, currentMission }) => {
     const [missions, setMissions] = useState([]);
 
     const fetchMissions = () => {
@@ -15,7 +15,9 @@ const MissionTopBar = ({ setCurrentMission }) => {
     }, [])
 
     const handlePress = (missionID) => {
-        setCurrentMission(missionID);
+        if (currentMission != missionID) {
+            setCurrentMission(missionID);
+        }
     }
 
     return (
@@ -24,7 +26,7 @@ const MissionTopBar = ({ setCurrentMission }) => {
             {missions.map((element) => {
                 return (
                     <Button
-                        title={`M${element[0]} P${element[1]} S${element[2]}`}
+                        title={`M${element[0]} P${element[1]} F${element[2]}`}
                         color={element.status === "Pass" ? styles.colors.BLUE : element.status === "Fail" ? styles.colors.RED : styles.colors.YELLOW}
                         onPress={() => handlePress(element[0])}
                         key={element[0]}

@@ -59,7 +59,7 @@ const SetUp = ({dispSelf, setDisp}) => {
                     <View style={[styles.playerInputBox]}>
                         <Button
                             onPress={handleDownPress}
-                            title="     -     "
+                            title="       -       "
                             disable={numPlayers === 5}
                             color={styles.colors.RED}
                             style={[styles.failedMissionButton]}
@@ -69,12 +69,12 @@ const SetUp = ({dispSelf, setDisp}) => {
                         </View>
                         <Button
                             onPress={handleUpPress}
-                            title="     +     "
+                            title="       +       "
                             disable={numPlayers === 10}
                             color={styles.colors.BLUE}
                         />
                     </View>
-                    <View style={[styles.startGameContainer, styles.messageContainer]}>
+                    <View style={[styles.startGameContainer, styles.messageContainer, { opacity: dispMessage ? 1 : 0}]}>
                         { dispMessage ? <Text style={[styles.smallTitleText, {color:"black"}]}>{messageText}</Text> : null }
                     </View>
                     <View style={[styles.startGameContainer]}>
@@ -88,9 +88,6 @@ const SetUp = ({dispSelf, setDisp}) => {
             </>
         )
     };
-
-
-
 }
 
 export default SetUp;

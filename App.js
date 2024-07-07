@@ -34,7 +34,7 @@ export default function App() {
         <View style={[styles.topBarContainer]}>
           <MissionTopBar setCurrentMission={setCurrentMission} currentMission={currentMission}/>
         </View>
-        <View>
+        <View style={[styles.detailContainer]}>
           <MissionDetails currentMission={currentMission}/>
         </View>
       </>

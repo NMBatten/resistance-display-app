@@ -79,16 +79,22 @@ const styles = StyleSheet.create({
     },
     detailsContainer: {
         flexDirection: "row",
-        flex: 1,
+        alignContent: "center",
+        alignItems: "flex-start",
+        justifyContent: "space-around",
+        backgroundColor: colors.YELLOW,
     },
     innerDetailContainer: {
         flexDirection: "column",
         flexGrow: 2,
-        alignItems: "stretch",
     },
     missionDisplayContainer: {
         flexDirection: "column",
         justifyContent: "space-around",
+        flexGrow: 1,
+        alignItems: "center",
+        alignContent: "center",
+        backgroundColor: colors.RED,
     },
 });
 

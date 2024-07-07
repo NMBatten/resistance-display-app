@@ -14,7 +14,7 @@ const MissionDetails = ({ currentMission }) => {
 
     useEffect(() => {
         getMission(currentMission);
-        // Once we set up 
+        // Once we set up
         // if (currentMission === gameObject.getActiveMission) {
         //     setIsActive(true)
         // } else {
@@ -25,15 +25,18 @@ const MissionDetails = ({ currentMission }) => {
     console.log("Details: ", details);
 
     return (
-        <View>
-            <View>
-                <View>
+        <>
+            <View style={[styles.missionDisplayContainer]}>
+                <View style={[styles.innerDetailContainer]}>
                     <Text>These are the details: {details.numTeam} {details.numFails}</Text>
                 </View>
             </View>
-            <Text>This is the Mission Details Page</Text>
-            <Text>{`mission ${currentMission}`}</Text>
-        </View>
+            <View style={[styles.missionDisplayContainer]}>
+                <View style={[styles.innerDetailContainer]}>
+                    <Text>This will contain the input buttons</Text>
+                </View>
+            </View>
+        </>
     )
 }
 

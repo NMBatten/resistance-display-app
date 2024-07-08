@@ -14,6 +14,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderColor: colors.RED,
+        height: "100%",
+        width: "100%",
     },
     failedMissionButton: {
         shadowColor: colors.RED,
@@ -91,10 +93,23 @@ const styles = StyleSheet.create({
     missionDisplayContainer: {
         flexDirection: "column",
         justifyContent: "space-around",
-        flexGrow: 1,
+        // flexGrow: 1,
         alignItems: "center",
         alignContent: "center",
         backgroundColor: colors.RED,
+        width: "50%",
+    },
+    missionDetailCard: {
+        backgroundColor: "#30314090",
+        borderRadius: 10,
+        overflow: "hidden",
+    },
+    innerCardView: {
+        backgroundColor: "#30314090",
+        borderRadius: 5,
+    },
+    voteButton: {
+
     },
 });
 

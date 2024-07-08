@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Text, View, Button } from 'react-native';
+import { Card } from '@rneui/themed';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')
 
@@ -26,15 +27,20 @@ const MissionDetails = ({ currentMission }) => {
 
     return (
         <>
-            <View style={[styles.missionDisplayContainer]}>
-                <View style={[styles.innerDetailContainer]}>
-                    <Text>These are the details: {details.numTeam} {details.numFails}</Text>
+            <View style={[styles.detailsContainer]}>
+                <View style={[styles.missionDisplayContainer]}>
+                    <View style={[styles.innerDetailContainer]}>
+                        <Text>These are the details: {details.numTeam} {details.numFails}</Text>
+                    </View>
+                </View>
+                <View style={[styles.missionDisplayContainer]}>
+                    <View style={[styles.innerDetailContainer]}>
+                        <Text>This will contain the input buttons</Text>
+                    </View>
                 </View>
             </View>
-            <View style={[styles.missionDisplayContainer]}>
-                <View style={[styles.innerDetailContainer]}>
-                    <Text>This will contain the input buttons</Text>
-                </View>
+            <View style={[styles.topBarContainer, styles.messageContainer]}>
+
             </View>
         </>
     )

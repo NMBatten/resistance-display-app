@@ -79,10 +79,14 @@ const gameObject = {
     setUp (num) {
         this.setNumPlayers(num);
         this.missionProfiles = possibleMissions[num - 5];
+        for (const key in this.missionProfiles) {
+            if (key !== "numSpies") {
+                this.missionProfiles[key]["votes"] = [false, false, false, false, false];
+            }
+        }
         return this.missionProfiles.numSpies;
     },
 
-    // currently not working, causing the bug
     getMissionDetails (missionID) {
         console.log("MissionProfileKey: ", String(missionID))
         console.log("Mission Details: ", this.missionProfiles[String(missionID)]);
@@ -118,6 +122,14 @@ const gameObject = {
 
     getSetUpStatus () {
         return this.setUpComplete;
+    },
+
+    updateMission (missionID, data) {
+        this.missionProfiles[missionID] = data;
+    },
+
+    endGame () {
+        return null;
     },
 };
 

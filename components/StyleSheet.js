@@ -109,8 +109,12 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     voteButton: {
+        height: "10%",
 
     },
+    voteBar: {
+        height: 34,
+    }
 });
 
 styles.colors = colors

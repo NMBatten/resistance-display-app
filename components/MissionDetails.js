@@ -7,6 +7,19 @@ const gameObject = require('./GameLogic')
 const MissionDetails = ({ currentMission }) => {
     const [details, setDetails] = useState([]);
     const [isActive, setIsActive] = useState(true);
+    const [currentVoteIndex, setCurrentVoteIndex] = useState(0);
+
+    const handleVoteButtonPress = (index) => {
+        console.log(`Vote button ${index} pressed`);
+        if (index === currentVoteIndex) {
+            details.votes[index] = True;
+            nextVoteIndex = currentVoteIndex + 1;
+            if (nextVoteIndex > 4) {
+                gameObject.endGame(); //still working this out, but in this case the spies win
+            }
+            setCurrentVoteIndex(nextVoteIndex)
+        }
+    }
 
     const getMission = (currentMission) => {
         const data = gameObject.getMissionDetails(currentMission);
@@ -22,6 +35,10 @@ const MissionDetails = ({ currentMission }) => {
         //     setIsActive(false)
         // }
     }, [currentMission]);
+
+    useEffect(() => {
+        gameObject.updateMission(currentMission, details);
+    }, [details])
 
     console.log("Details: ", details);
 
@@ -39,8 +56,18 @@ const MissionDetails = ({ currentMission }) => {
                     </View>
                 </View>
             </View>
-            <View style={[styles.topBarContainer, styles.messageContainer]}>
-
+            <View style={[styles.topBarContainer, styles.messageContainer, styles.voteBar]}>
+                {details.votes?.map((status, index) => {
+                    return (
+                        <Button
+                            title={status ? "Failed" : "Vote!"}
+                            color={status ? styles.colors.RED : styles.colors.YELLOW }
+                            onPress={() => handleVoteButtonPress(index)}
+                            key={index}
+                            style={[styles.voteButton]}
+                        />
+                    )
+                })}
             </View>
         </>
     )

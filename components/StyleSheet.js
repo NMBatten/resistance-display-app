@@ -14,6 +14,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderColor: colors.RED,
+        height: "100%",
+        width: "100%",
     },
     failedMissionButton: {
         shadowColor: colors.RED,
@@ -79,17 +81,40 @@ const styles = StyleSheet.create({
     },
     detailsContainer: {
         flexDirection: "row",
-        flex: 1,
+        alignContent: "center",
+        alignItems: "flex-start",
+        justifyContent: "space-around",
+        backgroundColor: colors.YELLOW,
     },
     innerDetailContainer: {
         flexDirection: "column",
         flexGrow: 2,
-        alignItems: "stretch",
     },
     missionDisplayContainer: {
         flexDirection: "column",
         justifyContent: "space-around",
+        // flexGrow: 1,
+        alignItems: "center",
+        alignContent: "center",
+        backgroundColor: colors.RED,
+        width: "50%",
     },
+    missionDetailCard: {
+        backgroundColor: "#30314090",
+        borderRadius: 10,
+        overflow: "hidden",
+    },
+    innerCardView: {
+        backgroundColor: "#30314090",
+        borderRadius: 5,
+    },
+    voteButton: {
+        height: "10%",
+
+    },
+    voteBar: {
+        height: 34,
+    }
 });
 
 styles.colors = colors

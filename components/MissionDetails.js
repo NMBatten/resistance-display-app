@@ -44,17 +44,19 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
     console.log("Details: ", details);
 
     return (
-        <View style={[styles.detailContainer]}>
+        <View style={{backgroundColor: "#30314090"}}>
             <View style={[styles.topBarContainer]}>
                 <MissionTopBar setCurrentMission={setCurrentMission} currentMission={currentMission}/>
             </View>
             <View style={[styles.detailsContainer]}>
                 <View style={[styles.missionDisplayContainer]}>
                     <View style={[styles.innerDetailContainer]}>
-                        <View>
-                            
+                        <View style={[styles.detailMessage, {backgroundColor: styles.colors.BLUE}]}>
+                            <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>Agents: {details.numTeam}</Text>
                         </View>
-                        <Text>These are the details: {details.numTeam} {details.numFails}</Text>
+                        <View style={[styles.detailMessage, {backgroundColor: styles.colors.RED}]}>
+                            <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>Fails: {details.numFails}</Text>
+                        </View>
                     </View>
                 </View>
                 <View style={[styles.missionDisplayContainer]}>
@@ -68,7 +70,7 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
                     console.log(`Status: ${status}, Index: ${index}`)
                     return (
                         <Button
-                            title={status ? "Failed" : "Vote!"}
+                            title={status ? " Failed " : "  Vote!  "}
                             color={status ? styles.colors.RED : styles.colors.YELLOW }
                             onPress={() => handleVoteButtonPress(index)}
                             key={index}

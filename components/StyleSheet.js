@@ -10,7 +10,6 @@ const colors = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#1f1f2e',
         alignItems: 'center',
         justifyContent: 'center',
         borderColor: colors.RED,
@@ -24,7 +23,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.BLUE,
     },
     topBarContainer: {
-        flex: 2,
+        flex: 1,
         padding: 10,
         justifyContent: "space-around",
         alignItems: "flex-start",
@@ -85,7 +84,9 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
         justifyContent: "space-around",
         flex: 4,
-        backgroundColor: colors.YELLOW,
+        backgroundColor: "#30314070",
+        borderRadius: 10,
+        marginHorizontal: 10,
     },
     innerDetailContainer: {
         flexDirection: "column",
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
         // flexGrow: 1,
         alignItems: "center",
         alignContent: "center",
-        backgroundColor: colors.RED,
+        backgroundColor: "#30314090",
         width: "50%",
     },
     missionDetailCard: {
@@ -116,9 +117,16 @@ const styles = StyleSheet.create({
 
     },
     voteBar: {
-        height: "34%",
-        flex: 1,
+        paddingTop: 10,
+        flex: 1
     },
+    detailMessage: {
+        paddingVertical: 5,
+        paddingHorizontal: 20,
+        margin: 10,
+        borderRadius: 10,
+        overflow: "hidden",
+    }
 });
 
 styles.colors = colors

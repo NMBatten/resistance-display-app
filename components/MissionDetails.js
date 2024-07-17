@@ -58,13 +58,13 @@ const MissionDetails = ({ currentMission }) => {
             </View>
             <View style={[styles.topBarContainer, styles.messageContainer, styles.voteBar]}>
                 {details.votes?.map((status, index) => {
+                    console.log(`Status: ${status}, Index: ${index}`)
                     return (
                         <Button
                             title={status ? "Failed" : "Vote!"}
                             color={status ? styles.colors.RED : styles.colors.YELLOW }
                             onPress={() => handleVoteButtonPress(index)}
                             key={index}
-                            style={[styles.voteButton]}
                         />
                     )
                 })}

@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
         alignContent: "center",
         alignItems: "flex-start",
         justifyContent: "space-around",
+        flex: 3,
         backgroundColor: colors.YELLOW,
     },
     innerDetailContainer: {
@@ -110,11 +111,14 @@ const styles = StyleSheet.create({
     },
     voteButton: {
         height: "10%",
+        margin: "2em",
+        padding: "2em",
 
     },
     voteBar: {
-        height: 34,
-    }
+        height: "34%",
+        flex: 1,
+    },
 });
 
 styles.colors = colors

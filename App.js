@@ -30,15 +30,14 @@ export default function App() {
 
   const renderTopBarAndDetails = () => {
     return (
-      <>
+      <View style={[styles.container]}>
         <View style={[styles.topBarContainer]}>
           <MissionTopBar setCurrentMission={setCurrentMission} currentMission={currentMission}/>
         </View>
         <View style={[styles.detailContainer]}>
           <MissionDetails currentMission={currentMission}/>
         </View>
-      </>
-
+      </View>
     )
   };
 

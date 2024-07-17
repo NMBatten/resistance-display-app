@@ -12,7 +12,7 @@ const MissionDetails = ({ currentMission }) => {
     const handleVoteButtonPress = (index) => {
         console.log(`Vote button ${index} pressed`);
         if (index === currentVoteIndex) {
-            details.votes[index] = True;
+            details.votes[index] = true;
             nextVoteIndex = currentVoteIndex + 1;
             if (nextVoteIndex > 4) {
                 gameObject.endGame(); //still working this out, but in this case the spies win
@@ -43,7 +43,7 @@ const MissionDetails = ({ currentMission }) => {
     console.log("Details: ", details);
 
     return (
-        <>
+        <View>
             <View style={[styles.detailsContainer]}>
                 <View style={[styles.missionDisplayContainer]}>
                     <View style={[styles.innerDetailContainer]}>
@@ -69,7 +69,7 @@ const MissionDetails = ({ currentMission }) => {
                     )
                 })}
             </View>
-        </>
+        </View>
     )
 }
 

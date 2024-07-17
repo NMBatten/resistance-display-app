@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.BLUE,
     },
     topBarContainer: {
-        flex: 1,
+        flex: 2,
         padding: 10,
         justifyContent: "space-around",
         alignItems: "flex-start",

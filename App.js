@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { View, ImageBackground } from 'react-native';
 import * as ScreenOrienatation from 'expo-screen-orientation';
-import MissionTopBar from './components/MissionTopBar';
 import MissionDetails from './components/MissionDetails';
 import SetUp from './components/Setup';
 const styles = require('./components/StyleSheet');
@@ -30,15 +29,9 @@ export default function App() {
 
   const renderTopBarAndDetails = () => {
     return (
-      <>
-        <View style={[styles.topBarContainer]}>
-          <MissionTopBar setCurrentMission={setCurrentMission} currentMission={currentMission}/>
-        </View>
-        <View style={[styles.detailContainer]}>
-          <MissionDetails currentMission={currentMission}/>
-        </View>
-      </>
-
+      <View style={[styles.container]}>
+        <MissionDetails currentMission={currentMission} setCurrentMission={setCurrentMission}/>
+      </View>
     )
   };
 

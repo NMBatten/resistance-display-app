@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.BLUE,
     },
     topBarContainer: {
-        flex: 1,
+        flex: 2,
         padding: 10,
         justifyContent: "space-around",
         alignItems: "flex-start",
@@ -84,11 +84,12 @@ const styles = StyleSheet.create({
         alignContent: "center",
         alignItems: "flex-start",
         justifyContent: "space-around",
+        flex: 4,
         backgroundColor: colors.YELLOW,
     },
     innerDetailContainer: {
         flexDirection: "column",
-        flexGrow: 2,
+        flexGrow: 1,
     },
     missionDisplayContainer: {
         flexDirection: "column",
@@ -110,11 +111,14 @@ const styles = StyleSheet.create({
     },
     voteButton: {
         height: "10%",
+        margin: "2em",
+        padding: "2em",
 
     },
     voteBar: {
-        height: 34,
-    }
+        height: "34%",
+        flex: 1,
+    },
 });
 
 styles.colors = colors

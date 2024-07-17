@@ -84,12 +84,12 @@ const styles = StyleSheet.create({
         alignContent: "center",
         alignItems: "flex-start",
         justifyContent: "space-around",
-        flex: 3,
+        flex: 4,
         backgroundColor: colors.YELLOW,
     },
     innerDetailContainer: {
         flexDirection: "column",
-        flexGrow: 2,
+        flexGrow: 1,
     },
     missionDisplayContainer: {
         flexDirection: "column",

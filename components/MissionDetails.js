@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Text, View, Button } from 'react-native';
 import { Card } from '@rneui/themed';
+import MissionTopBar from './MissionTopBar';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')
 
-const MissionDetails = ({ currentMission }) => {
+const MissionDetails = ({ currentMission, setCurrentMission }) => {
     const [details, setDetails] = useState([]);
     const [isActive, setIsActive] = useState(true);
     const [currentVoteIndex, setCurrentVoteIndex] = useState(0);
@@ -43,10 +44,16 @@ const MissionDetails = ({ currentMission }) => {
     console.log("Details: ", details);
 
     return (
-        <View>
+        <View style={[styles.detailContainer]}>
+            <View style={[styles.topBarContainer]}>
+                <MissionTopBar setCurrentMission={setCurrentMission} currentMission={currentMission}/>
+            </View>
             <View style={[styles.detailsContainer]}>
                 <View style={[styles.missionDisplayContainer]}>
                     <View style={[styles.innerDetailContainer]}>
+                        <View>
+                            
+                        </View>
                         <Text>These are the details: {details.numTeam} {details.numFails}</Text>
                     </View>
                 </View>

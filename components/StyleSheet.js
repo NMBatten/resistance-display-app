@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
         justifyContent: "space-around",
         flex: 4,
-        backgroundColor: "#30314070",
+        backgroundColor: "#30314020",
         borderRadius: 10,
         marginHorizontal: 10,
     },
@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
     missionDisplayContainer: {
         flexDirection: "column",
         justifyContent: "space-around",
-        // flexGrow: 1,
         alignItems: "center",
         alignContent: "center",
         backgroundColor: "#30314090",

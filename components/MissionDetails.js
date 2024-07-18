@@ -19,6 +19,8 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
                 gameObject.endGame(); //still working this out, but in this case the spies win
             }
             setCurrentVoteIndex(nextVoteIndex)
+        } else {
+            console.log("Does not match current vote index")
         }
     }
 

@@ -8,17 +8,17 @@ const gameObject = require('./GameLogic')
 const MissionDetails = ({ currentMission, setCurrentMission }) => {
     const [details, setDetails] = useState([]);
     const [isActive, setIsActive] = useState(true);
-    const [currentVoteIndex, setCurrentVoteIndex] = useState(0);
+    const [currentVote, setCurrentVote] = useState(0);
 
     const handleVoteButtonPress = (index) => {
         console.log(`Vote button ${index} pressed`);
-        if (index === currentVoteIndex) {
+        if (index === details.votes[5]) {
             details.votes[index] = true;
-            nextVoteIndex = currentVoteIndex + 1;
-            if (nextVoteIndex > 4) {
+            details.votes[5] += 1;
+            if (details.votes[5] > 4) {
                 gameObject.endGame(); //still working this out, but in this case the spies win
             }
-            setCurrentVoteIndex(nextVoteIndex)
+            setCurrentVote(currentVote + 1);
         } else {
             console.log("Does not match current vote index")
         }
@@ -68,7 +68,7 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
                 </View>
             </View>
             <View style={[styles.topBarContainer, styles.messageContainer, styles.voteBar]}>
-                {details.votes?.map((status, index) => {
+                {details.votes?.slice(0,5).map((status, index) => {
                     console.log(`Status: ${status}, Index: ${index}`)
                     return (
                         <Button

@@ -125,6 +125,9 @@ const styles = StyleSheet.create({
         margin: 10,
         borderRadius: 10,
         overflow: "hidden",
+    },
+    passFailInputContainer: {
+        flexDirection: "column",
     }
 });
 

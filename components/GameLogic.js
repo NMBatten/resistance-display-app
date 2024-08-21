@@ -129,6 +129,7 @@ const gameObject = {
     },
 
     endGame () {
+        console.log("game over");
         return null;
     },
 };

@@ -9,10 +9,17 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
     const [details, setDetails] = useState([]);
     const [isActive, setIsActive] = useState(true);
     const [pFIsActive, setPFIsActive] = useState(false);
+    const [editMode, setEditMode] = useState(false); // allows items to be edited
     const [currentVote, setCurrentVote] = useState(0);
 
     const setVoteResult = (status) => {
         details.votes[details.votes[5] - 1] = status;
+        if (status === 'pass') {
+            console.log("VOTE PASSED");
+            setPFIsActive(true);
+            details.votes[5] = 10;
+        }
+        setDetails({...details});
     }
 
     const handleVoteButtonPress = (index) => {
@@ -33,12 +40,9 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
             details.votes[5] += 1;
             if (details.votes[5] > 4 && details.votes[index] === 'fail') {
                 gameObject.endGame(); //still working this out, but in this case the spies win
-            } else if (details.votes[index] === "pass") {
-                setPFIsActive(true);
-                details.votes[5] = 6;
             }
             setCurrentVote(currentVote + 1);
-            setDetails(details);
+            setDetails({...details});
         } else {
             console.log("Does not match current vote index")
         }

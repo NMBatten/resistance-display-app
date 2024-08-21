@@ -98,7 +98,7 @@ const gameObject = {
     },
 
     getActiveMission () {
-        return this.activeMission
+        return this.activeMission;
     },
 
     getMissions () {

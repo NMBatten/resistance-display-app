@@ -34,7 +34,7 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
                 {
                     text: "Fail",
                     onPress: () => setVoteResult('fail'),
-                    style: 'cancel'
+                    style: 'destructive'
                 }
             ]);
             details.votes[5] += 1;
@@ -87,7 +87,10 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
                 </View>
                 <View style={[styles.missionDisplayContainer]}>
                     <View style={[styles.innerDetailContainer]}>
-                        <Text>This will contain the input buttons</Text>
+                        <View style={[styles.passFailInputContainer]}>
+                            <Text>This</Text>
+                            <Text>This</Text>
+                        </View>
                     </View>
                 </View>
             </View>

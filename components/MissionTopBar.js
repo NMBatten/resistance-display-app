@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Text, View, Button } from 'react-native';
+import { View, Button } from 'react-native';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')
 
@@ -22,7 +22,6 @@ const MissionTopBar = ({ setCurrentMission, currentMission }) => {
 
     return (
         <View style={[styles.topBarContainer, styles.messageContainer]}>
-            {console.log("Missions", missions)}
             {missions.map((element) => {
                 return (
                     <Button

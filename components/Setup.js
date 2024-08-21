@@ -3,10 +3,6 @@ import { Text, View, Button } from 'react-native';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic');
 
-// This component allows the user to enter the number of players.
-// Once the number of players is confirmed it will display
-// how many players should be resistance and how many will be spies
-
 const SetUp = ({dispSelf, setDisp}) => {
     const [numPlayers, setNumPlayers] = useState(5);
     const [dispMessage, setDispMessage] = useState(false);

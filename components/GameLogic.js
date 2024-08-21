@@ -130,13 +130,8 @@ const gameObject = {
     },
 
     endGame () {
-        console.log("game over");
         return null;
     },
 };
 
 module.exports = gameObject;
-
-
-//  Also need to add in an automatic
-// game end checker.

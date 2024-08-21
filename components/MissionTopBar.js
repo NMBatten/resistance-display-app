@@ -12,7 +12,7 @@ const MissionTopBar = ({ setCurrentMission, currentMission }) => {
 
     useEffect(() => {
         fetchMissions();
-    }, [])
+    }, [currentMission])
 
     const handlePress = (missionID) => {
         if (currentMission != missionID) {

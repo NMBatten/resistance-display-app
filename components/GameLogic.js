@@ -114,6 +114,7 @@ const gameObject = {
 
     missionSucceeded (missionID, value) {
         value ? this.missionProfiles[missionID]["status"] = "Pass" : this.missionProfiles[missionID]["status"] = "Fail";
+        console.log("Mission Passed: ", value);
     },
 
     setSetUpComplete () {

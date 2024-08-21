@@ -52,7 +52,12 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
         if (pFIsActive) {
             gameObject.missionSucceeded(currentMission, status === 'pass');
             setPFIsActive(false);
-            setCurrentMission(currentMission+1);
+            if (currentMission + 1 >= 6) {
+                setCurrentMission(1);
+                gameObject.endGame();
+            } else {
+                setCurrentMission(currentMission+1);
+            }
         }
     }
 
@@ -107,11 +112,11 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
                                 </View>
                             </TouchableOpacity>
                         </View>
-                        <TouchableOpacity onPress={() => console.log("Edit mode")}>
-                            <View style={[styles.detailMessage, {backgroundColor: styles.colors.YELLOW}]}>
+                        {/* <TouchableOpacity onPress={() => console.log("Edit mode")}>
+                            <View style={[styles.detailMessage, {backgroundColor: "#00000000"}]}>
                                 <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>EDIT</Text>
                             </View>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                 </View>
             </View>

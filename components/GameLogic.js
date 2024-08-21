@@ -81,7 +81,7 @@ const gameObject = {
         this.missionProfiles = possibleMissions[num - 5];
         for (const key in this.missionProfiles) {
             if (key !== "numSpies") {
-                this.missionProfiles[key]["votes"] = [false, false, false, false, false];
+                this.missionProfiles[key]["votes"] = [false, false, false, false, false, 0]; //The last number represensts the current vote index
             }
         }
         return this.missionProfiles.numSpies;
@@ -98,7 +98,7 @@ const gameObject = {
     },
 
     getActiveMission () {
-        return this.activeMission
+        return this.activeMission;
     },
 
     getMissions () {
@@ -129,6 +129,7 @@ const gameObject = {
     },
 
     endGame () {
+        console.log("game over");
         return null;
     },
 };

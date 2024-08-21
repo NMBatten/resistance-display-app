@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Text, View, Button, Alert } from 'react-native';
-import { Card } from '@rneui/themed';
+import { Text, View, Button, Alert, TouchableOpacity } from 'react-native';
 import MissionTopBar from './MissionTopBar';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')
@@ -34,7 +33,7 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
                 {
                     text: "Fail",
                     onPress: () => setVoteResult('fail'),
-                    style: 'cancel'
+                    style: 'destructive'
                 }
             ]);
             details.votes[5] += 1;
@@ -45,6 +44,20 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
             setDetails({...details});
         } else {
             console.log("Does not match current vote index")
+        }
+    }
+
+    const resolveMission = (status) => {
+        console.log("MISSION RESOLVE ACTIVATED");
+        if (pFIsActive) {
+            gameObject.missionSucceeded(currentMission, status === 'pass');
+            setPFIsActive(false);
+            if (currentMission + 1 >= 6) {
+                setCurrentMission(1);
+                gameObject.endGame();
+            } else {
+                setCurrentMission(currentMission+1);
+            }
         }
     }
 
@@ -87,13 +100,28 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
                 </View>
                 <View style={[styles.missionDisplayContainer]}>
                     <View style={[styles.innerDetailContainer]}>
-                        <Text>This will contain the input buttons</Text>
+                        <View style={[styles.passFailInputContainer]}>
+                            <TouchableOpacity onPress={() => resolveMission('pass')}>
+                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.BLUE}]}>
+                                    <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>PASS</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => resolveMission('fail')}>
+                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.RED}]}>
+                                    <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>FAIL</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                        {/* <TouchableOpacity onPress={() => console.log("Edit mode")}>
+                            <View style={[styles.detailMessage, {backgroundColor: "#00000000"}]}>
+                                <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>EDIT</Text>
+                            </View>
+                        </TouchableOpacity> */}
                     </View>
                 </View>
             </View>
             <View style={[styles.topBarContainer, styles.messageContainer, styles.voteBar]}>
                 {details.votes?.slice(0,5).map((status, index) => {
-                    console.log(`Status: ${status}, Index: ${index}`)
                     return (
                         <Button
                             title={status === 'fail' ? " Failed " : status === 'pass' ? " Passed " : "  Vote!  "}

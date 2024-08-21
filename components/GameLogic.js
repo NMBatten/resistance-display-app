@@ -114,6 +114,7 @@ const gameObject = {
 
     missionSucceeded (missionID, value) {
         value ? this.missionProfiles[missionID]["status"] = "Pass" : this.missionProfiles[missionID]["status"] = "Fail";
+        console.log("Mission Passed: ", value);
     },
 
     setSetUpComplete () {
@@ -137,5 +138,5 @@ const gameObject = {
 module.exports = gameObject;
 
 
-// Logic for votes still needs to be implemented. Also need to add in an automatic
+//  Also need to add in an automatic
 // game end checker.

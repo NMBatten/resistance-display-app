@@ -127,7 +127,10 @@ const styles = StyleSheet.create({
         overflow: "hidden",
     },
     passFailInputContainer: {
-        flexDirection: "column",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignItems: "center",
+        alignContent: "center"
     }
 });
 

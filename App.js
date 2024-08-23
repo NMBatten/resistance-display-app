@@ -19,6 +19,10 @@ export default function App() {
     lockOrientation();
   }, []);
 
+  useEffect(() => {
+    gameObject.checkGameEnd();
+  }, [currentMission]);
+
   const lockOrientation = async () => {
     await ScreenOrienatation.lockAsync(
       ScreenOrienatation.OrientationLock.LANDSCAPE_RIGHT

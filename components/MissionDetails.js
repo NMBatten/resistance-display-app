@@ -90,10 +90,10 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
             <View style={[styles.detailsContainer]}>
                 <View style={[styles.missionDisplayContainer]}>
                     <View style={[styles.innerDetailContainer]}>
-                        <View style={[styles.detailMessage, {backgroundColor: styles.colors.BLUE}]}>
+                        <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUEBLUE}]}>
                             <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>Agents: {details.numTeam}</Text>
                         </View>
-                        <View style={[styles.detailMessage, {backgroundColor: styles.colors.RED}]}>
+                        <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUERED}]}>
                             <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>Fails: {details.numFails}</Text>
                         </View>
                     </View>
@@ -102,12 +102,12 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
                     <View style={[styles.innerDetailContainer]}>
                         <View style={[styles.passFailInputContainer]}>
                             <TouchableOpacity onPress={() => resolveMission('pass')}>
-                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.BLUE}]}>
+                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUEBLUE}]}>
                                     <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>PASS</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => resolveMission('fail')}>
-                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.RED}]}>
+                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUERED}]}>
                                     <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>FAIL</Text>
                                 </View>
                             </TouchableOpacity>

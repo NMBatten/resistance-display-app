@@ -5,6 +5,9 @@ const colors = {
     RED: "#800000",
     BURGUNDY: "#800000",
     YELLOW: "#ffd11aaa",
+    OPAQUEBLUE: "#0505ccaa",
+    OPAQUERED: "#800000aa",
+    OPAQUEYELLOW: "#ffd11aaaaa",
 }
 
 const styles = StyleSheet.create({
@@ -75,7 +78,8 @@ const styles = StyleSheet.create({
     },
     messageContainer: {
         backgroundColor: "#30314090",
-        borderRadius: 10,
+        borderRadius: 15,
+        marginHorizontal: 10,
         overflow: "hidden",
     },
     detailsContainer: {
@@ -97,7 +101,6 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
         alignItems: "center",
         alignContent: "center",
-        backgroundColor: "#30314090",
         width: "50%",
     },
     missionDetailCard: {
@@ -110,14 +113,11 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     voteButton: {
-        height: "10%",
-        margin: "2em",
-        padding: "2em",
-
+        alignSelf: "center",
     },
     voteBar: {
-        paddingTop: 10,
-        flex: 1
+        marginVertical: 10,
+        alignContent: "center",
     },
     detailMessage: {
         paddingVertical: 5,

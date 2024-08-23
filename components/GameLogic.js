@@ -45,6 +45,7 @@ const possibleMissions = [
         4:{numTeam: 5, numFails: 2},
         5:{numTeam: 5, numFails: 1},
     },
+    // 9 players:
     {
         numSpies: 3,
         1:{numTeam: 3, numFails: 1},
@@ -53,6 +54,7 @@ const possibleMissions = [
         4:{numTeam: 5, numFails: 2},
         5:{numTeam: 5, numFails: 1},
     },
+    // 10 players:
     {
         numSpies: 4,
         1:{numTeam: 3, numFails: 1},
@@ -68,6 +70,7 @@ const gameObject = {
     missionProfiles: undefined,
     activeMission: 1,
     setUpComplete: false,
+    gameOver: false,
 
     setNumPlayers (num) {
         this.numPlayers = num;
@@ -131,8 +134,13 @@ const gameObject = {
 
     endGame () {
         console.log("game over");
-        return null;
+        this.gameOver = true;
+        return true;
     },
+
+    checkGameEnd () {
+
+    }
 };
 
 module.exports = gameObject;

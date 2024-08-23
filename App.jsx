@@ -4,6 +4,7 @@ import { View, ImageBackground } from 'react-native';
 import * as ScreenOrienatation from 'expo-screen-orientation';
 import MissionDetails from './components/MissionDetails';
 import SetUp from './components/Setup';
+import GameEnd from './components/GameEnd';
 const styles = require('./components/StyleSheet');
 const gameObject = require('./components/GameLogic')
 

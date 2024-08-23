@@ -71,6 +71,7 @@ const gameObject = {
     activeMission: 1,
     setUpComplete: false,
     gameOver: false,
+    teamWin: null,
 
     setNumPlayers (num) {
         this.numPlayers = num;
@@ -132,14 +133,28 @@ const gameObject = {
         this.missionProfiles[missionID] = data;
     },
 
-    endGame () {
-        console.log("game over");
+    endGame (result) {
+        console.log(`game over, ${result}`);
         this.gameOver = true;
         return true;
     },
 
     checkGameEnd () {
-
+        const missionsArray = this.getMissions();
+        let passCount = 0;
+        let failCount = 0;
+        for (mission of missionsArray) {
+            if (missions[3] === "pass") {
+                passCount ++;
+            } else if (missions[3] === "fail") {
+                failCount ++;
+            }
+        }
+        if (passCount >= 3) {
+            this.endGame("agents");
+        } else if (failCount >= 3) {
+            this.endGame('spies');
+        }
     }
 };
 

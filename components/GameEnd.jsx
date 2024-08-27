@@ -1,9 +1,18 @@
+import { useEffect, useState } from "react";
 import { BackHandler, View, Text, TouchableOpacity } from "react-native";
 
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic');
 
 const GameEnd = () => {
+
+    const [teamWin, setTeamWin] = useState("");
+
+    useEffect(() => {
+        thisTeamWin = gameObject.getTeamWin();
+        setTeamWin(thisTeamWin[0].toUpperCase() + thisTeamWin.slice(1));
+    }, [setTeamWin])
+
     return (
         <View style={{backgroundColor: "#30314090"}}>
             <View style={[styles.gameEndTopContainer]}>
@@ -15,10 +24,8 @@ const GameEnd = () => {
                 </View>
             </View>
             <View style={[styles.gameResultBar, {backgroundColor: gameObject.getTeamWin() === "agents" ? styles.colors.OPAQUEBLUE : styles.colors.OPAQUERED }]}>
-                <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>{gameObject.getTeamWin()} Win!</Text>
-                <Text>YEET</Text>
+                <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>{teamWin} Win!</Text>
             </View>
-            <Text>This is the game end page</Text>
         </View>
     )
 }

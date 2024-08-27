@@ -141,7 +141,14 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     gameResultBar: {
-        flex: 1,
+        borderRadius: 10,
+        margin: 10,
+    },
+    gameReloadBar: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignContent: "center",
+        alignItems: "center",
     }
 });
 

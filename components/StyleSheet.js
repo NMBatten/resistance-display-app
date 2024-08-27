@@ -130,7 +130,25 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
-        alignContent: "center"
+        alignContent: "center",
+    },
+    gameEndTopContainer: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignContent: "center",
+    },
+    gameEndTopItem: {
+        flex: 1,
+    },
+    gameResultBar: {
+        borderRadius: 10,
+        margin: 10,
+    },
+    gameReloadBar: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignContent: "center",
+        alignItems: "center",
     }
 });
 

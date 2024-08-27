@@ -38,7 +38,7 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
             ]);
             details.votes[5] += 1;
             if (details.votes[5] > 4 && details.votes[index] === 'fail') {
-                gameObject.endGame(); //still working this out, but in this case the spies win
+                gameObject.endGame("spies"); //still working this out, but in this case the spies win
             }
             setCurrentVote(currentVote + 1);
             setDetails({...details});

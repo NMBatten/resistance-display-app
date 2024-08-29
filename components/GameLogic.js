@@ -66,7 +66,7 @@ const possibleMissions = [
 ];
 
 const gameObject = {
-    numPlayers: null,
+    numPlayers: 5,
     missionProfiles: undefined,
     activeMission: 1,
     setUpComplete: false,
@@ -167,7 +167,6 @@ const gameObject = {
     },
 
     resetGame () {
-        this.numPlayers = null;
         this.missionProfiles = undefined;
         this.activeMission = 1;
         this.setUpComplete = false;
@@ -175,7 +174,10 @@ const gameObject = {
         this.teamWin = null;
         this.passes = 0;
         this.fails = 0;
-    }
+    },
+
+
+
 
 };
 

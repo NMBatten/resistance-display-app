@@ -14,6 +14,10 @@ const GameEnd = ({setCurrentMission, setSetUpComplete}) => {
         setSetUpComplete(false);
     }
 
+    const exit = () => {
+        exitApp();
+    }
+
     useEffect(() => {
         thisTeamWin = gameObject.getTeamWin();
         setTeamWin(thisTeamWin[0].toUpperCase() + thisTeamWin.slice(1));
@@ -35,10 +39,10 @@ const GameEnd = ({setCurrentMission, setSetUpComplete}) => {
             <View style={[styles.gameReloadBar]}>
                 <TouchableOpacity onPress={() => reload()}>
                     <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUEBLUE}]}>
-                        <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>RELOAD</Text>
+                        <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>NEW GAME</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => null}>
+                <TouchableOpacity onPress={() => exit()}>
                     <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUERED}]}>
                         <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}> EXIT </Text>
                     </View>

@@ -8,7 +8,7 @@ const gameObject = require('./GameLogic');
 // how many players should be resistance and how many will be spies
 
 const SetUp = ({dispSelf, setDisp}) => {
-    const [numPlayers, setNumPlayers] = useState(5);
+    const [numPlayers, setNumPlayers] = useState(gameObject.getNumPlayers());
     const [dispMessage, setDispMessage] = useState(false);
     const [messageText, setMessageText] = useState('');
     const [submitButtonActive, setSubmitButtonActive] = useState(true);

@@ -15,7 +15,7 @@ const GameEnd = ({setCurrentMission, setSetUpComplete}) => {
     }
 
     const exit = () => {
-        exitApp();
+        BackHandler.exitApp();
     }
 
     useEffect(() => {

@@ -164,7 +164,19 @@ const gameObject = {
 
     getTeamWin () {
         return this.teamWin;
+    },
+
+    resetGame () {
+        this.numPlayers = null;
+        this.missionProfiles = undefined;
+        this.activeMission = 1;
+        this.setUpComplete = false;
+        this.gameOver = false;
+        this.teamWin = null;
+        this.passes = 0;
+        this.fails = 0;
     }
+
 };
 
 module.exports = gameObject;

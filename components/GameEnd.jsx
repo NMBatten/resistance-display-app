@@ -4,9 +4,15 @@ import { BackHandler, View, Text, TouchableOpacity } from "react-native";
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic');
 
-const GameEnd = () => {
+const GameEnd = ({setCurrentMission, setSetUpComplete}) => {
 
     const [teamWin, setTeamWin] = useState("");
+
+    const reload = () => {
+        gameObject.resetGame();
+        setCurrentMission(1);
+        setSetUpComplete(false);
+    }
 
     useEffect(() => {
         thisTeamWin = gameObject.getTeamWin();
@@ -25,6 +31,18 @@ const GameEnd = () => {
             </View>
             <View style={[styles.gameResultBar, {backgroundColor: gameObject.getTeamWin() === "agents" ? styles.colors.OPAQUEBLUE : styles.colors.OPAQUERED }]}>
                 <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>{teamWin} Win!</Text>
+            </View>
+            <View style={[styles.gameReloadBar]}>
+                <TouchableOpacity onPress={() => reload()}>
+                    <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUEBLUE}]}>
+                        <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>RELOAD</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => null}>
+                    <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUERED}]}>
+                        <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}> EXIT </Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         </View>
     )

@@ -49,7 +49,7 @@ export default function App() {
 
   const renderGameEnd = () => {
     return (
-      <GameEnd />
+      <GameEnd setCurrentMission={setCurrentMission} setSetUpComplete={setSetUpComplete}/>
     )
   }
 

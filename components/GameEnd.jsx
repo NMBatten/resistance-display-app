@@ -24,7 +24,7 @@ const GameEnd = ({setCurrentMission, setSetUpComplete}) => {
     }, [setTeamWin])
 
     return (
-        <View style={{backgroundColor: "#30314090"}}>
+        <View style={[{backgroundColor: "#30314090"}]}>
             <View style={[styles.gameEndTopContainer]}>
                 <View style={[styles.detailMessage, styles.gameEndTopItem, {backgroundColor: styles.colors.OPAQUEBLUE}]}>
                     <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>Agents Passed   {gameObject.getPasses()} Missions</Text>
@@ -44,7 +44,7 @@ const GameEnd = ({setCurrentMission, setSetUpComplete}) => {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => exit()}>
                     <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUERED}]}>
-                        <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}> EXIT </Text>
+                        <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>    EXIT    </Text>
                     </View>
                 </TouchableOpacity>
             </View>

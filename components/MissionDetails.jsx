@@ -4,7 +4,7 @@ import MissionTopBar from './MissionTopBar';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')
 
-const MissionDetails = ({ currentMission, setCurrentMission }) => {
+const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     const [details, setDetails] = useState([]);
     const [isActive, setIsActive] = useState(true);
     const [pFIsActive, setPFIsActive] = useState(false);
@@ -17,8 +17,18 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
             console.log("VOTE PASSED");
             setPFIsActive(true);
             details.votes[5] = 10;
+        } else {
+            checkVoteFail();
         }
         setDetails({...details});
+    }
+
+    const checkVoteFail = () => {
+        if (details.votes[5] > 4 && details.votes[details.votes[5] - 1] === 'fail') {
+            gameObject.endGame("spies");
+            setGameOver(true);
+        }
+
     }
 
     const handleVoteButtonPress = (index) => {
@@ -37,9 +47,8 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
                 }
             ]);
             details.votes[5] += 1;
-            if (details.votes[5] > 4 && details.votes[index] === 'fail') {
-                gameObject.endGame("spies"); //still working this out, but in this case the spies win
-            }
+            console.log(`details.votes[5]: ${details.votes[5]} details.votes[index]: ${details.votes[index]}`)
+
             setCurrentVote(currentVote + 1);
             setDetails({...details});
         } else {
@@ -79,8 +88,6 @@ const MissionDetails = ({ currentMission, setCurrentMission }) => {
     useEffect(() => {
         gameObject.updateMission(currentMission, details);
     }, [details, details.votes])
-
-    console.log("Details: ", details);
 
     return (
         <View style={{backgroundColor: "#30314090"}}>

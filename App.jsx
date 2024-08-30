@@ -36,7 +36,7 @@ export default function App() {
   const renderTopBarAndDetails = () => {
     return (
       <View style={[styles.container]}>
-        <MissionDetails currentMission={currentMission} setCurrentMission={setCurrentMission}/>
+        <MissionDetails currentMission={currentMission} setCurrentMission={setCurrentMission} setGameOver={setGameOver}/>
       </View>
     )
   };

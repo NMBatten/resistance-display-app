@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         alignContent: "center",
-        marginTop: 25,
+        marginTop: 15,
         paddingTop: 10,
     },
     gameEndTopItem: {
@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignContent: "center",
         alignItems: "center",
+        marginBottom: 15,
     }
 });
 

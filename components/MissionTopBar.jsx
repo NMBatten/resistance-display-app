@@ -11,6 +11,7 @@ const MissionTopBar = ({ setCurrentMission, currentMission }) => {
     }
 
     useEffect(() => {
+        console.log("Fetching new mission data, currentMission change")
         fetchMissions();
     }, [currentMission])
 
@@ -22,10 +23,11 @@ const MissionTopBar = ({ setCurrentMission, currentMission }) => {
 
     return (
         <View style={[styles.topBarContainer, styles.messageContainer]}>
-            {console.log("Missions", missions)}
+            {console.log("Missions:", missions)}
             {missions.map((element) => {
                 return (
                     <Button
+                        style={{paddingBottom: 5}}
                         title={`M${element[0]} P${element[1]} F${element[2]}`}
                         color={element[3] === "Pass" ? styles.colors.BLUE : element[3] === "Fail" ? styles.colors.RED : styles.colors.YELLOW}
                         onPress={() => handlePress(element[0])}

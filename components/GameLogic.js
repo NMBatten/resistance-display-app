@@ -66,8 +66,8 @@ const possibleMissions = [
 ];
 
 const gameObject = {
-    numPlayers: null,
-    missionProfiles: undefined,
+    numPlayers: 5,
+    missionProfiles: {},
     activeMission: 1,
     setUpComplete: false,
     gameOver: false,
@@ -75,14 +75,15 @@ const gameObject = {
     passes: 0,
     fails: 0,
 
-    setNumPlayers (num) {
+    setNumPlayers: function(num) {
         this.numPlayers = num;
     },
-    getNumPlayers () {
+
+    getNumPlayers: function() {
         return this.numPlayers;
     },
 
-    setUp (num) {
+    setUp: function(num) {
         this.setNumPlayers(num);
         this.missionProfiles = possibleMissions[num - 5];
         for (const key in this.missionProfiles) {
@@ -93,21 +94,22 @@ const gameObject = {
         return this.missionProfiles.numSpies;
     },
 
-    getMissionDetails (missionID) {
+    getMissionDetails: function(missionID) {
         console.log("MissionProfileKey: ", String(missionID))
         console.log("Mission Details: ", this.missionProfiles[String(missionID)]);
         return this.missionProfiles[missionID];
     },
 
-    setActiveMission (missionID) {
+    setActiveMission: function(missionID) {
         this.activeMission = missionID;
     },
 
-    getActiveMission () {
+    getActiveMission: function() {
         return this.activeMission;
     },
 
-    getMissions () {
+    getMissions: function() {
+        console.log("Getting missions, this.missionProfile:", this.missionProfiles)
         const missionsArray = [];
         for (const key in this.missionProfiles) {
             const { numTeam, numFails, status } = this.missionProfiles[key]
@@ -118,17 +120,17 @@ const gameObject = {
         return missionsArray;
     },
 
-    missionSucceeded (missionID, value) {
+    missionSucceeded: function(missionID, value) {
         value ? this.missionProfiles[missionID]["status"] = "Pass" : this.missionProfiles[missionID]["status"] = "Fail";
         value ? this.passes++ : this.fails++;
         console.log("Mission Passed: ", value);
     },
 
-    setSetUpComplete () {
+    setSetUpComplete: function() {
         this.setUpComplete = true;
     },
 
-    getSetUpStatus () {
+    getSetUpStatus: function() {
         return this.setUpComplete;
     },
 
@@ -136,15 +138,14 @@ const gameObject = {
         this.missionProfiles[missionID] = data;
     },
 
-    endGame (result) {
+    endGame: function(result) {
         console.log(`game over, ${result} wins`);
         this.gameOver = true;
         this.teamWin = result;
         return true;
     },
 
-    checkGameEnd () {
-        const missionsArray = this.getMissions();
+    checkGameEnd: function() {
         if (this.passes >= 3) {
             this.endGame("agents");
             return true;
@@ -154,21 +155,32 @@ const gameObject = {
         }
     },
 
-    getPasses () {
+    getPasses: function() {
         return this.passes;
     },
 
-    getFails () {
+    getFails: function() {
         return this.fails;
     },
 
-    getTeamWin () {
+    getTeamWin: function() {
         return this.teamWin;
-    }
+    },
+
+    resetGame: function() {
+        // this.missionProfiles = {};
+        this.activeMission = 1;
+        this.setUpComplete = false;
+        this.gameOver = false;
+        this.teamWin = null;
+        this.passes = 0;
+        this.fails = 0;
+        console.log(this.missionProfiles);
+    },
+
+
+
+
 };
 
 module.exports = gameObject;
-
-
-//  Also need to add in an automatic
-// game end checker.

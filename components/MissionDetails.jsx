@@ -32,7 +32,7 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     }
 
     const handleVoteButtonPress = (index) => {
-        console.log(`Vote button ${index} pressed`);
+        // console.log(`Vote button ${index} pressed`);
         if (index === details.votes[5]) {
             Alert.alert("Vote Dialog", "Pass or Fail the vote", [
                 {
@@ -47,8 +47,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
                 }
             ]);
             details.votes[5] += 1;
-            console.log(`details.votes[5]: ${details.votes[5]} details.votes[index]: ${details.votes[index]}`)
-
             setCurrentVote(currentVote + 1);
             setDetails({...details});
         } else {
@@ -57,7 +55,7 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     }
 
     const resolveMission = (status) => {
-        console.log("MISSION RESOLVE ACTIVATED");
+        // console.log("MISSION RESOLVE ACTIVATED");
         if (pFIsActive) {
             gameObject.missionSucceeded(currentMission, status === 'pass');
             setPFIsActive(false);

@@ -67,8 +67,8 @@ const possibleMissions = [
 
 const gameObject = {
     numPlayers: 5,
-    missionProfiles: {},
     activeMission: 1,
+    missionProfiles: {},
     setUpComplete: false,
     gameOver: false,
     teamWin: null,
@@ -85,7 +85,7 @@ const gameObject = {
 
     setUp: function(num) {
         this.setNumPlayers(num);
-        this.missionProfiles = possibleMissions[num - 5];
+        this.missionProfiles = {...possibleMissions[num - 5]};
         for (const key in this.missionProfiles) {
             if (key !== "numSpies") {
                 this.missionProfiles[key]["votes"] = [false, false, false, false, false, 0]; //The last number represensts the current vote index
@@ -123,7 +123,7 @@ const gameObject = {
     missionSucceeded: function(missionID, value) {
         value ? this.missionProfiles[missionID]["status"] = "Pass" : this.missionProfiles[missionID]["status"] = "Fail";
         value ? this.passes++ : this.fails++;
-        console.log("Mission Passed: ", value);
+        // console.log("Mission Passed: ", value);
     },
 
     setSetUpComplete: function() {
@@ -168,14 +168,14 @@ const gameObject = {
     },
 
     resetGame: function() {
-        // this.missionProfiles = {};
+        this.missionProfiles = {};
         this.activeMission = 1;
         this.setUpComplete = false;
         this.gameOver = false;
         this.teamWin = null;
         this.passes = 0;
         this.fails = 0;
-        console.log(this.missionProfiles);
+        console.log("MISSION PROFILES AFTER RESET:", this.missionProfiles);
     },
 
 

@@ -14,7 +14,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     const setVoteResult = (status) => {
         details.votes[details.votes[5] - 1] = status;
         if (status === 'pass') {
-            console.log("VOTE PASSED");
             setPFIsActive(true);
             details.votes[5] = 10;
         } else {
@@ -32,7 +31,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     }
 
     const handleVoteButtonPress = (index) => {
-        // console.log(`Vote button ${index} pressed`);
         if (index === details.votes[5]) {
             Alert.alert("Vote Dialog", "Pass or Fail the vote", [
                 {
@@ -49,13 +47,10 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
             details.votes[5] += 1;
             setCurrentVote(currentVote + 1);
             setDetails({...details});
-        } else {
-            console.log("Does not match current vote index")
         }
     }
 
     const resolveMission = (status) => {
-        // console.log("MISSION RESOLVE ACTIVATED");
         if (pFIsActive) {
             gameObject.missionSucceeded(currentMission, status === 'pass');
             setPFIsActive(false);
@@ -117,11 +112,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
                                 </View>
                             </TouchableOpacity>
                         </View>
-                        {/* <TouchableOpacity onPress={() => console.log("Edit mode")}>
-                            <View style={[styles.detailMessage, {backgroundColor: "#00000000"}]}>
-                                <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>EDIT</Text>
-                            </View>
-                        </TouchableOpacity> */}
                     </View>
                 </View>
             </View>

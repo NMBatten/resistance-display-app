@@ -95,8 +95,6 @@ const gameObject = {
     },
 
     getMissionDetails: function(missionID) {
-        console.log("MissionProfileKey: ", String(missionID))
-        console.log("Mission Details: ", this.missionProfiles[String(missionID)]);
         return this.missionProfiles[missionID];
     },
 
@@ -109,7 +107,6 @@ const gameObject = {
     },
 
     getMissions: function() {
-        console.log("Getting missions, this.missionProfile:", this.missionProfiles)
         const missionsArray = [];
         for (const key in this.missionProfiles) {
             const { numTeam, numFails, status } = this.missionProfiles[key]
@@ -123,7 +120,6 @@ const gameObject = {
     missionSucceeded: function(missionID, value) {
         value ? this.missionProfiles[missionID]["status"] = "Pass" : this.missionProfiles[missionID]["status"] = "Fail";
         value ? this.passes++ : this.fails++;
-        // console.log("Mission Passed: ", value);
     },
 
     setSetUpComplete: function() {
@@ -139,7 +135,6 @@ const gameObject = {
     },
 
     endGame: function(result) {
-        console.log(`game over, ${result} wins`);
         this.gameOver = true;
         this.teamWin = result;
         return true;
@@ -175,7 +170,6 @@ const gameObject = {
         this.teamWin = null;
         this.passes = 0;
         this.fails = 0;
-        console.log("MISSION PROFILES AFTER RESET:", this.missionProfiles);
     },
 
 

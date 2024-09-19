@@ -45,7 +45,6 @@ const SetUp = ({dispSelf, setDisp}) => {
 
     const handleFinishButtonPress = () => {
         gameObject.setSetUpComplete();
-        console.log("Setup Complete")
         setDisp();
     };
 

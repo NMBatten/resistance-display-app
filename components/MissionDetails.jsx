@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Text, View, Button, Alert, TouchableOpacity } from 'react-native';
+import { Text, View, Button, Alert, TouchableOpacity, Modal } from 'react-native';
 import MissionTopBar from './MissionTopBar';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')
@@ -14,7 +14,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     const setVoteResult = (status) => {
         details.votes[details.votes[5] - 1] = status;
         if (status === 'pass') {
-            console.log("VOTE PASSED");
             setPFIsActive(true);
             details.votes[5] = 10;
         } else {
@@ -32,7 +31,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     }
 
     const handleVoteButtonPress = (index) => {
-        // console.log(`Vote button ${index} pressed`);
         if (index === details.votes[5]) {
             Alert.alert("Vote Dialog", "Pass or Fail the vote", [
                 {
@@ -49,8 +47,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
             details.votes[5] += 1;
             setCurrentVote(currentVote + 1);
             setDetails({...details});
-        } else {
-            console.log("Does not match current vote index")
         }
     }
 

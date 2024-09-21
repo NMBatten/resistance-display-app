@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     topBarContainer: {
         flex: 1,
-        padding: 10,
+        padding: 5,
         justifyContent: "space-around",
         alignItems: "flex-start",
         flexDirection: "row",

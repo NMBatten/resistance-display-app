@@ -8,6 +8,7 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     const [details, setDetails] = useState([]);
     const [isActive, setIsActive] = useState(true);
     const [pFIsActive, setPFIsActive] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
     const [editMode, setEditMode] = useState(false); // allows items to be edited
     const [currentVote, setCurrentVote] = useState(0);
 
@@ -20,6 +21,7 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
             checkVoteFail();
         }
         setDetails({...details});
+        setModalVisible(!modalVisible);
     }
 
     const checkVoteFail = () => {
@@ -32,18 +34,19 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
 
     const handleVoteButtonPress = (index) => {
         if (index === details.votes[5]) {
-            Alert.alert("Vote Dialog", "Pass or Fail the vote", [
-                {
-                    text: "Pass",
-                    onPress: () => setVoteResult('pass'),
-                    style: 'cancel'
-                },
-                {
-                    text: "Fail",
-                    onPress: () => setVoteResult('fail'),
-                    style: 'destructive'
-                }
-            ]);
+            setModalVisible(true)
+            // Alert.alert("Vote Dialog", "Pass or Fail the vote", [
+            //     {
+            //         text: "Pass",
+            //         onPress: () => setVoteResult('pass'),
+            //         style: 'cancel'
+            //     },
+            //     {
+            //         text: "Fail",
+            //         onPress: () => setVoteResult('fail'),
+            //         style: 'destructive'
+            //     }
+            // ]);
             details.votes[5] += 1;
             setCurrentVote(currentVote + 1);
             setDetails({...details});
@@ -85,6 +88,31 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
 
     return (
         <View style={{backgroundColor: "#30314090"}}>
+            <View>
+                <Modal
+                    animationType='fade'
+                    transparent={true}
+                    visible={modalVisible}
+                >
+                    <View style={[styles.modalView]}>
+                        <View>
+                            <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUEYELLOW}]}>
+                                <Text style={[styles.smallTitleText, styles.modalButton]}>Pass or Fail the Vote!</Text>
+                            </View>
+                            <TouchableOpacity onPress={() => setVoteResult('pass')}>
+                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUEBLUE}]}>
+                                    <Text style={[styles.smallTitleText, styles.modalButton]}>PASS</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => setVoteResult('fail')}>
+                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUERED}]}>
+                                    <Text style={[styles.smallTitleText, styles.modalButton]}>FAIL</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </Modal>
+            </View>
             <View style={[styles.topBarContainer]}>
                 <MissionTopBar setCurrentMission={setCurrentMission} currentMission={currentMission}/>
             </View>

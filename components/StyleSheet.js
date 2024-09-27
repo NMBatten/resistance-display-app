@@ -7,7 +7,7 @@ const colors = {
     YELLOW: "#ffd11aaa",
     OPAQUEBLUE: "#0505ccaa",
     OPAQUERED: "#800000aa",
-    OPAQUEYELLOW: "#ffd11aaaaa",
+    OPAQUEYELLOW: "#ffd11aaa",
 }
 
 const styles = StyleSheet.create({
@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
         alignContent: "center",
         alignItems: "flex-start",
         justifyContent: "space-around",
-        flex: 4,
         backgroundColor: "#30314020",
         borderRadius: 10,
         marginHorizontal: 10,
@@ -152,6 +151,18 @@ const styles = StyleSheet.create({
         alignContent: "center",
         alignItems: "center",
         marginBottom: 15,
+    },
+    modalView: {
+        flexDirection: "column",
+        alignContent: "center",
+        paddingVertical: 50,
+        paddingHorizontal: 50,
+    },
+    modalButton: {
+        color: "black",
+        padding: 5,
+        margin: 5,
+        fontSize: 25
     }
 });
 

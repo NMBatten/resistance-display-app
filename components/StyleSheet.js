@@ -4,7 +4,7 @@ const colors = {
     BLUE: "#0505cc",
     RED: "#800000",
     BURGUNDY: "#800000",
-    YELLOW: "#ffd11aaa",
+    YELLOW: "#ffd11a",
     OPAQUEBLUE: "#0505ccaa",
     OPAQUERED: "#800000aa",
     OPAQUEYELLOW: "#ffd11aaa",
@@ -15,19 +15,13 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        borderColor: colors.RED,
         height: "100%",
         width: "100%",
-    },
-    failedMissionButton: {
-        shadowColor: colors.RED,
-    },
-    successMissionButton: {
-        backgroundColor: colors.BLUE,
     },
     topBarContainer: {
         flex: 1,
         padding: 5,
+        margin: 1,
         justifyContent: "space-around",
         alignItems: "flex-start",
         flexDirection: "row",
@@ -45,7 +39,6 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         justifyContent: "space-around",
-        borderColor: colors.RED,
         paddingTop: 50,
     },
     playerInputBox: {
@@ -53,7 +46,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
-        borderColor: colors.RED,
         padding: 10,
     },
     smallTitleText: {
@@ -155,14 +147,18 @@ const styles = StyleSheet.create({
     modalView: {
         flexDirection: "column",
         alignContent: "center",
-        paddingVertical: 50,
-        paddingHorizontal: 50,
+        paddingVertical: 30,
+        paddingHorizontal: 100,
     },
     modalButton: {
         color: "black",
-        padding: 5,
-        margin: 5,
-        fontSize: 25
+        padding: 4,
+        margin: 4,
+        fontSize: 25,
+    },
+    modalInnerContainer: {
+        backgroundColor: "#30314060",
+        borderRadius: 10,
     }
 });
 

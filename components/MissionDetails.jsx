@@ -95,17 +95,17 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
                     visible={modalVisible}
                 >
                     <View style={[styles.modalView]}>
-                        <View>
-                            <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUEYELLOW}]}>
+                        <View style={[styles.modalInnerContainer]}>
+                            <View style={[styles.detailMessage, {backgroundColor: styles.colors.YELLOW}]}>
                                 <Text style={[styles.smallTitleText, styles.modalButton]}>Pass or Fail the Vote!</Text>
                             </View>
                             <TouchableOpacity onPress={() => setVoteResult('pass')}>
-                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUEBLUE}]}>
+                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.BLUE}]}>
                                     <Text style={[styles.smallTitleText, styles.modalButton]}>PASS</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => setVoteResult('fail')}>
-                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.OPAQUERED}]}>
+                                <View style={[styles.detailMessage, {backgroundColor: styles.colors.RED}]}>
                                     <Text style={[styles.smallTitleText, styles.modalButton]}>FAIL</Text>
                                 </View>
                             </TouchableOpacity>

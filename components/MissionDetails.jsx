@@ -88,7 +88,7 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
 
     return (
         <View style={{backgroundColor: "#30314090"}}>
-            <View>
+            <View style={{marginTop: 7}}>
                 <Modal
                     animationType='fade'
                     transparent={true}
@@ -154,7 +154,7 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
                     return (
                         <TouchableOpacity onPress={() => handleVoteButtonPress(index)} key={index}>
                             <View style={[{backgroundColor: status === 'fail' ? styles.colors.OPAQUERED : status === 'pass' ? styles.colors.OPAQUEBLUE : styles.colors.OPAQUEYELLOW, borderRadius: 5 }]}>
-                                <Text style={[styles.smallTitleText, {color:"black", padding: 4, margin: 4, fontSize: 18}]}>
+                                <Text style={[styles.smallTitleText, {color:"black", padding: 4, margin: 4, fontSize: 22}]}>
                                     {status === 'fail' ? " Failed " : status === 'pass' ? " Passed " : "  Vote!  "}
                                 </Text>
                             </View>
@@ -167,10 +167,3 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
 }
 
 export default MissionDetails;
-
-/* <Button
-                            title={status === 'fail' ? " Failed " : status === 'pass' ? " Passed " : "  Vote!  "}
-                            color={status === 'fail' ? styles.colors.RED : status === 'pass' ? styles.colors.BLUE : styles.colors.YELLOW }
-                            onPress={() => handleVoteButtonPress(index)}
-                            key={index}
-                        /> */

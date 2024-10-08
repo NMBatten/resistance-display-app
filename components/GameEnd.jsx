@@ -27,10 +27,10 @@ const GameEnd = ({setCurrentMission, setSetUpComplete}) => {
         <View style={[{backgroundColor: "#30314090"}]}>
             <View style={[styles.gameEndTopContainer]}>
                 <View style={[styles.detailMessage, styles.gameEndTopItem, {backgroundColor: styles.colors.OPAQUEBLUE}]}>
-                    <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>Agents Passed   {gameObject.getPasses()} Missions</Text>
+                    <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10, fontSize: 22}]}>Agents Completed {gameObject.getPasses()} Missions</Text>
                 </View>
                 <View style={[styles.detailMessage, styles.gameEndTopItem, {backgroundColor: styles.colors.OPAQUERED}]}>
-                    <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>Spies Sabotaged {gameObject.getFails()} Missions</Text>
+                    <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10, fontSize: 22}]}>Spies Sabotaged {gameObject.getFails()} Missions</Text>
                 </View>
             </View>
             <View style={[styles.gameResultBar, {backgroundColor: gameObject.getTeamWin() === "agents" ? styles.colors.OPAQUEBLUE : styles.colors.OPAQUERED }]}>

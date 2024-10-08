@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { View, Button } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')
 
@@ -22,17 +22,17 @@ const MissionTopBar = ({ setCurrentMission, currentMission }) => {
     }
 
     return (
-        <View style={[styles.topBarContainer, styles.messageContainer]}>
+        <View style={[styles.topBarContainer, {}]}>
             {console.log("Missions:", missions)}
             {missions.map((element) => {
                 return (
-                    <Button
-                        style={{paddingBottom: 5}}
-                        title={`M${element[0]} P${element[1]} F${element[2]}`}
-                        color={element[3] === "Pass" ? styles.colors.BLUE : element[3] === "Fail" ? styles.colors.RED : styles.colors.YELLOW}
-                        onPress={() => handlePress(element[0])}
-                        key={element[0]}
-                    />
+                    <TouchableOpacity onPress={() => handlePress(element[0])} key={element[0]}>
+                        <View style={[{backgroundColor: element[3] === "Pass" ? styles.colors.OPAQUEBLUE : element[3] === "Fail" ? styles.colors.OPAQUERED : styles.colors.OPAQUEYELLOW, borderRadius: 5}]}>
+                            <Text style={[styles.smallTitleText, {color:"black", padding: 4, margin: 4, fontSize: 20}]}>
+                                {`M${element[0]} P${element[1]} F${element[2]}`}
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
                 )
             })}
         </View>

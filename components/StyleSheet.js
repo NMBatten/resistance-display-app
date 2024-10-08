@@ -103,9 +103,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#30314090",
         borderRadius: 5,
     },
-    voteButton: {
-        alignSelf: "center",
-    },
     voteBar: {
         marginVertical: 10,
         alignContent: "center",
@@ -159,7 +156,11 @@ const styles = StyleSheet.create({
     modalInnerContainer: {
         backgroundColor: "#30314060",
         borderRadius: 10,
-    }
+    },
+    voteButton: {
+        borderRadius: 4,
+    },
+
 });
 
 styles.colors = colors

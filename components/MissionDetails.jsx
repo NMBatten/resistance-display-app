@@ -149,15 +149,16 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
                     </View>
                 </View>
             </View>
-            <View style={[styles.topBarContainer, styles.messageContainer, styles.voteBar]}>
+            <View style={[styles.topBarContainer, styles.voteBar]}>
                 {details.votes?.slice(0,5).map((status, index) => {
                     return (
-                        <Button
-                            title={status === 'fail' ? " Failed " : status === 'pass' ? " Passed " : "  Vote!  "}
-                            color={status === 'fail' ? styles.colors.RED : status === 'pass' ? styles.colors.BLUE : styles.colors.YELLOW }
-                            onPress={() => handleVoteButtonPress(index)}
-                            key={index}
-                        />
+                        <TouchableOpacity onPress={() => handleVoteButtonPress(index)} key={index}>
+                            <View style={[{backgroundColor: status === 'fail' ? styles.colors.OPAQUERED : status === 'pass' ? styles.colors.OPAQUEBLUE : styles.colors.OPAQUEYELLOW, borderRadius: 5 }]}>
+                                <Text style={[styles.smallTitleText, {color:"black", padding: 4, margin: 4, fontSize: 18}]}>
+                                    {status === 'fail' ? " Failed " : status === 'pass' ? " Passed " : "  Vote!  "}
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
                     )
                 })}
             </View>
@@ -166,3 +167,10 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
 }
 
 export default MissionDetails;
+
+/* <Button
+                            title={status === 'fail' ? " Failed " : status === 'pass' ? " Passed " : "  Vote!  "}
+                            color={status === 'fail' ? styles.colors.RED : status === 'pass' ? styles.colors.BLUE : styles.colors.YELLOW }
+                            onPress={() => handleVoteButtonPress(index)}
+                            key={index}
+                        /> */

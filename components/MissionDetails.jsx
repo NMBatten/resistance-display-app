@@ -35,18 +35,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     const handleVoteButtonPress = (index) => {
         if (index === details.votes[5]) {
             setModalVisible(true)
-            // Alert.alert("Vote Dialog", "Pass or Fail the vote", [
-            //     {
-            //         text: "Pass",
-            //         onPress: () => setVoteResult('pass'),
-            //         style: 'cancel'
-            //     },
-            //     {
-            //         text: "Fail",
-            //         onPress: () => setVoteResult('fail'),
-            //         style: 'destructive'
-            //     }
-            // ]);
             details.votes[5] += 1;
             setCurrentVote(currentVote + 1);
             setDetails({...details});
@@ -88,7 +76,7 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
 
     return (
         <View style={{backgroundColor: "#30314090"}}>
-            <View style={{marginTop: 7}}>
+            <View style={{marginTop: 5}}>
                 <Modal
                     animationType='fade'
                     transparent={true}

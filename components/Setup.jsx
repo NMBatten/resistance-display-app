@@ -52,7 +52,7 @@ const SetUp = ({dispSelf, setDisp}) => {
     if (dispSelf) {
         return (
             <>
-                <View style={[styles.setUpContainer, {backgroundColor: "#30314050", borderRadius: 10}]}>
+                <View style={[styles.setUpContainer, {backgroundColor: "#30314050"}]}>
                     <View style={[styles.messageContainer, styles.startGameContainer]}>
                         <Text style={[styles.titleText]}>WELCOME TO THE RESISTANCE</Text>
                     </View>
@@ -65,7 +65,7 @@ const SetUp = ({dispSelf, setDisp}) => {
                             style={[styles.failedMissionButton]}
                         />
                         <View style={{backgroundColor: "#30314090", borderRadius: 10}}>
-                            <Text style={[styles.smallTitleText]}>{numPlayers}</Text>
+                            <Text style={[styles.smallTitleText, {color: "black", fontSize: 32}]}>{numPlayers}</Text>
                         </View>
                         <Button
                             onPress={handleUpPress}

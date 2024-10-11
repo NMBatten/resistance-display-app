@@ -160,6 +160,20 @@ const styles = StyleSheet.create({
     voteButton: {
         borderRadius: 4,
     },
+    SetupText: {
+        color:"black",
+        padding: 10,
+        fontSize: 20,
+        fontWeight: "bold",
+        textShadowColor: "#558ABB80",
+        textAlign: "center",
+        textShadowOffset: {width: 1, height: 1},
+        textShadowRadius: 4,
+    },
+    SetupBox: {
+        borderRadius: 5,
+        padding: 2,
+    }
 
 });
 

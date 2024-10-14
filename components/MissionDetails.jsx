@@ -6,10 +6,8 @@ const gameObject = require('./GameLogic')
 
 const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     const [details, setDetails] = useState([]);
-    const [isActive, setIsActive] = useState(true);
     const [pFIsActive, setPFIsActive] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
-    const [editMode, setEditMode] = useState(false); // allows items to be edited
     const [currentVote, setCurrentVote] = useState(0);
 
     const setVoteResult = (status) => {
@@ -42,7 +40,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
     }
 
     const resolveMission = (status) => {
-        // console.log("MISSION RESOLVE ACTIVATED");
         if (pFIsActive) {
             gameObject.missionSucceeded(currentMission, status === 'pass');
             setPFIsActive(false);
@@ -62,12 +59,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
 
     useEffect(() => {
         getMission(currentMission);
-        // Once we set up
-        // if (currentMission === gameObject.getActiveMission) {
-        //     setIsActive(true)
-        // } else {
-        //     setIsActive(false)
-        // }
     }, [currentMission]);
 
     useEffect(() => {
@@ -129,11 +120,6 @@ const MissionDetails = ({ currentMission, setCurrentMission, setGameOver }) => {
                                 </View>
                             </TouchableOpacity>
                         </View>
-                        {/* <TouchableOpacity onPress={() => console.log("Edit mode")}>
-                            <View style={[styles.detailMessage, {backgroundColor: "#00000000"}]}>
-                                <Text style={[styles.smallTitleText, {color:"black", padding: 10, margin: 10}]}>EDIT</Text>
-                            </View>
-                        </TouchableOpacity> */}
                     </View>
                 </View>
             </View>

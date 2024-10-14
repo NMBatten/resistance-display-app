@@ -138,16 +138,11 @@ const gameObject = {
         this.missionProfiles[missionID] = data;
     },
 
-<<<<<<< HEAD
-    endGame () {
-        return null;
-=======
     endGame: function(result) {
         console.log(`game over, ${result} wins`);
         this.gameOver = true;
         this.teamWin = result;
         return true;
->>>>>>> master
     },
 
     checkGameEnd: function() {

@@ -20,7 +20,7 @@ const SetUp = ({dispSelf, setDisp}) => {
             setNumPlayers(numPlayers + 1);
             submitButtonActive ? null : setSubmitButtonActive(true);
         } else {
-            setMessageText("10 players is the max");
+            setMessageText("10 players is the maximum");
             setDispMessage(true);
         };
     };

@@ -134,7 +134,7 @@ const gameObject = {
         return this.setUpComplete;
     },
 
-    updateMission (missionID, data) {
+    updateMission: function(missionID, data) {
         this.missionProfiles[missionID] = data;
     },
 

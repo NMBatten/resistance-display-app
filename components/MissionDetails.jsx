@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Text, View, Button, Alert, TouchableOpacity, Modal } from 'react-native';
+import { Text, View, TouchableOpacity, Modal } from 'react-native';
 import MissionTopBar from './MissionTopBar';
 const styles = require('./StyleSheet');
 const gameObject = require('./GameLogic')

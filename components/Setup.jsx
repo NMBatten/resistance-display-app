@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Text, View, Button, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 styles = require('./StyleSheet');
 const gameObject = require('./GameLogic');
 

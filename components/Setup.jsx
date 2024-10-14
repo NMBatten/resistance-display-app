@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Text, View, Button } from 'react-native';
-const styles = require('./StyleSheet');
+import { Text, View, TouchableOpacity } from 'react-native';
+styles = require('./StyleSheet');
 const gameObject = require('./GameLogic');
 
 const SetUp = ({dispSelf, setDisp}) => {
-    const [numPlayers, setNumPlayers] = useState(5);
+    const [numPlayers, setNumPlayers] = useState(gameObject.getNumPlayers());
     const [dispMessage, setDispMessage] = useState(false);
     const [messageText, setMessageText] = useState('');
     const [submitButtonActive, setSubmitButtonActive] = useState(true);
@@ -48,37 +48,34 @@ const SetUp = ({dispSelf, setDisp}) => {
     if (dispSelf) {
         return (
             <>
-                <View style={[styles.setUpContainer, {backgroundColor: "#30314050", borderRadius: 10}]}>
+                <View style={[styles.setUpContainer, {backgroundColor: "#30314050"}]}>
                     <View style={[styles.messageContainer, styles.startGameContainer]}>
-                        <Text style={[styles.titleText]}>WELCOME TO THE RESISTANCE</Text>
+                        <Text style={[styles.titleText, {color: 'black'}]}>WELCOME TO THE RESISTANCE</Text>
                     </View>
                     <View style={[styles.playerInputBox]}>
-                        <Button
-                            onPress={handleDownPress}
-                            title="       -       "
-                            disable={numPlayers === 5}
-                            color={styles.colors.RED}
-                            style={[styles.failedMissionButton]}
-                        />
+                        <TouchableOpacity onPress={() => handleDownPress()}>
+                            <View style={[styles.SetupBox, {backgroundColor: styles.colors.OPAQUERED}]}>
+                                <Text style={[styles.SetupText]}>     -     </Text>
+                            </View>
+                        </TouchableOpacity>
                         <View style={{backgroundColor: "#30314090", borderRadius: 10}}>
-                            <Text style={[styles.smallTitleText]}>{numPlayers}</Text>
+                            <Text style={[styles.smallTitleText, {color: "black", fontSize: 32}]}>{numPlayers}</Text>
                         </View>
-                        <Button
-                            onPress={handleUpPress}
-                            title="       +       "
-                            disable={numPlayers === 10}
-                            color={styles.colors.BLUE}
-                        />
+                        <TouchableOpacity onPress={() => handleUpPress()}>
+                            <View style={[styles.SetupBox, {backgroundColor: styles.colors.OPAQUEBLUE}]}>
+                                <Text style={[styles.SetupText]}>     +     </Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                     <View style={[styles.startGameContainer, styles.messageContainer, { opacity: dispMessage ? 1 : 0}]}>
                         { dispMessage ? <Text style={[styles.smallTitleText, {color:"black"}]}>{messageText}</Text> : null }
                     </View>
                     <View style={[styles.startGameContainer]}>
-                        <Button
-                            onPress={ dispMessage && submitted ? handleFinishButtonPress : handleSubmitButtonPress }
-                            title= { dispMessage && submitted ? "   Start Game   " : "      Submit      " }
-                            color={styles.colors.BURGUNDY}
-                        />
+                        <TouchableOpacity onPress={() => {dispMessage && submitted ? handleFinishButtonPress() : handleSubmitButtonPress()}}>
+                            <View style={[styles.SetupBox, {backgroundColor: styles.colors.OPAQUERED}]}>
+                                <Text style={[styles.SetupText]}>{ dispMessage && submitted ? "   Start Game   " : "      Submit      " }</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </>

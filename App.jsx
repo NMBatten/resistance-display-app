@@ -4,6 +4,7 @@ import { View, ImageBackground } from 'react-native';
 import * as ScreenOrienatation from 'expo-screen-orientation';
 import MissionDetails from './components/MissionDetails';
 import SetUp from './components/Setup';
+import GameEnd from './components/GameEnd';
 const styles = require('./components/StyleSheet');
 const gameObject = require('./components/GameLogic')
 
@@ -14,10 +15,15 @@ export default function App() {
   const [orientation, setOrientation] = useState(3);
   const [currentMission, setCurrentMission ] = useState(1);
   const [setUpComplete, setSetUpComplete] = useState(false);
+  const [gameOver, setGameOver] = useState(true); // Immediately sets game end to true for testing, remove before prod
 
   useEffect(() => {
     lockOrientation();
   }, []);
+
+  useEffect(() => {
+    setGameOver(gameObject.checkGameEnd());
+  }, [currentMission]);
 
   const lockOrientation = async () => {
     await ScreenOrienatation.lockAsync(
@@ -30,7 +36,7 @@ export default function App() {
   const renderTopBarAndDetails = () => {
     return (
       <View style={[styles.container]}>
-        <MissionDetails currentMission={currentMission} setCurrentMission={setCurrentMission}/>
+        <MissionDetails currentMission={currentMission} setCurrentMission={setCurrentMission} setGameOver={setGameOver}/>
       </View>
     )
   };
@@ -41,10 +47,16 @@ export default function App() {
     )
   };
 
+  const renderGameEnd = () => {
+    return (
+      <GameEnd setCurrentMission={setCurrentMission} setSetUpComplete={setSetUpComplete}/>
+    )
+  }
+
   return (
     <View style={[styles.container, {flexDirection: "column"}]}>
       <ImageBackground source={require('./components/resources/pictures/FutureCity.jpg')} resizeMode='stretch' style={[styles.backgroundImage]}>
-        {gameObject.getSetUpStatus() ? renderTopBarAndDetails() : renderSetUp()}
+        {!gameObject.getSetUpStatus() ? renderSetUp() : gameOver ? renderGameEnd() : renderTopBarAndDetails()}
         <StatusBar style="auto" />
       </ImageBackground>
     </View>

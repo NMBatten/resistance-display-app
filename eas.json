@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "build": {
     "preview": {
       "android": {
@@ -17,5 +18,22 @@
       "distribution": "internal"
     },
     "production": {}
+=======
+  "cli": {
+    "version": ">= 10.2.4"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {}
+>>>>>>> master
   }
 }
